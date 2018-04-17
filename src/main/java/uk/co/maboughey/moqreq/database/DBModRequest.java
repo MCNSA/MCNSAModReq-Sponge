@@ -1,6 +1,4 @@
 package uk.co.maboughey.moqreq.database;
-
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.type.ModRequest;
 
@@ -14,7 +12,7 @@ import java.util.UUID;
 
 public class DBModRequest {
 
-    public List<ModRequest> getRequests(int status) {
+    public static List<ModRequest> getRequests(int status) {
         List<ModRequest> output = new ArrayList<ModRequest>();
 
         try {
@@ -54,5 +52,51 @@ public class DBModRequest {
         }
 
         return output;
+    }
+
+    public static int getCount(int status, UUID uuid) {
+        int count = 0;
+
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=? AND user=?");
+            statement.setInt(1, status);
+            statement.setString(2, uuid.toString());
+            ResultSet results = statement.executeQuery();
+
+            if (results.next()) {
+                count = results.getInt("COUNT(id)");
+            }
+        }
+        catch (SQLException e){
+            ModReq.log.error("Sql error getting count "+e.getMessage());
+        }
+        return count;
+    }
+    public static int getModCount(int status, UUID uuid) {
+        int count = 0;
+
+        try {
+            Connection connection = DatabaseManager.getConnection();
+            PreparedStatement statement = null;
+            if (status == 0) {
+                statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=?");
+            }
+            else if (status == 1){
+                statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=? AND responder=?");
+            }
+            statement.setInt(1, status);
+            statement.setString(2, uuid.toString());
+            ResultSet results = statement.executeQuery();
+
+            if (results.next()) {
+                count = results.getInt("COUNT(id)");
+            }
+        }
+        catch (SQLException e){
+            ModReq.log.error("Sql error getting count "+e.getMessage());
+        }
+        return count;
     }
 }
