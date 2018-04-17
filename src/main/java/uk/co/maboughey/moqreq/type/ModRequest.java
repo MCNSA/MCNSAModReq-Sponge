@@ -5,6 +5,8 @@ import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.world.Location;
 import org.spongepowered.api.world.World;
 import uk.co.maboughey.moqreq.ModReq;
+import uk.co.maboughey.moqreq.utils.Configuration;
+import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -20,6 +22,7 @@ public class ModRequest {
     public int status;
     public UUID responder;
     public String response;
+    public String server;
 
     public void setRotation(Double x, Double y, Double z) {
         Vector3d v3d = new Vector3d(x,y,z);
@@ -37,7 +40,13 @@ public class ModRequest {
         location = new Location<World>(worldEntity.get(), x, y, z);
     }
     public void teleport(Player player) {
-        player.setRotation(rotation);
-        player.setLocation(location);
+        //Check to see if it is this server
+        if (server == Configuration.ServerName) {
+            player.setRotation(rotation);
+            player.setLocation(location);
+        }
+        else {
+            Messaging.errorMessage(player, "This request is not from this server");
+        }
     }
 }

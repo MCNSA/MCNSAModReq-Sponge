@@ -30,6 +30,7 @@ public class DBModRequest {
                 request.status = results.getInt("status");
                 request.responder = UUID.fromString(results.getString("responder"));
                 request.response = results.getString("response");
+                request.server = results.getString("server");
 
                 //Location info
                 Double pos_x = results.getDouble("pos_x");

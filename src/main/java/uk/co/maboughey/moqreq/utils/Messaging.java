@@ -50,6 +50,10 @@ public class Messaging {
         }
     }
 
+    public static void errorMessage(Player player, String message) {
+        player.sendMessage(colour("&4"+message));
+    }
+
     public static Text colour(String string) {
         return TextSerializers.FORMATTING_CODE.deserialize(string);
     }

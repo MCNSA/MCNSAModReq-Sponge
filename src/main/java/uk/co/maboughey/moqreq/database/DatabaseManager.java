@@ -29,6 +29,7 @@ public class DatabaseManager {
             //Create the tables if they don't exist
             preparedStatement = connect.prepareStatement("CREATE TABLE IF NOT EXISTS modReq (" +
                     "id int(6) NOT NULL AUTO_INCREMENT, " +
+                    "server varchar(50) NOT NULL" +
                     "user varchar(50) NOT NULL, " +
                     "message TEXT NOT NULL, " +
                     "pos_x double NOT NULL, " +
