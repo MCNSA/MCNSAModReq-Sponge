@@ -28,9 +28,17 @@ public class DBModRequest {
                 request.user = UUID.fromString(results.getString("user"));
                 request.message = results.getString("message");
                 request.status = results.getInt("status");
-                request.responder = UUID.fromString(results.getString("responder"));
                 request.response = results.getString("response");
                 request.server = results.getString("server");
+
+                //Handle null responder field
+                String responder = results.getString("responder");
+                if (responder == null) {
+                    request.responder = null;
+                }
+                else {
+                    request.responder = UUID.fromString(results.getString("responder"));
+                }
 
                 //Location info
                 Double pos_x = results.getDouble("pos_x");
@@ -54,7 +62,6 @@ public class DBModRequest {
 
         return output;
     }
-
     public static int getCount(int status, UUID uuid) {
         int count = 0;
 
@@ -99,5 +106,36 @@ public class DBModRequest {
             ModReq.log.error("Sql error getting count "+e.getMessage());
         }
         return count;
+    }
+    public static void saveNewRequest(ModRequest request) {
+        try {
+            Connection connection = DatabaseManager.getConnection();
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO modReq (" +
+                    "user, " +
+                    "message, " +
+                    "server, " +
+                    "pos_x, " +
+                    "pos_y, " +
+                    "pos_z, " +
+                    "rot_x, " +
+                    "rot_y, " +
+                    "rot_z"+
+                    ") VALUES (?,?,?,?,?,?,?,?,?)");
+
+            statement.setString(1, request.user.toString());
+            statement.setString(2, request.message);
+            statement.setString(3, request.server);
+            statement.setDouble(4, request.location.getX());
+            statement.setDouble(5, request.location.getY());
+            statement.setDouble(6, request.location.getZ());
+            statement.setDouble(7, request.rotation.getX());
+            statement.setDouble(8, request.rotation.getY());
+            statement.setDouble(9, request.rotation.getZ());
+
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            ModReq.log.error("Sql error saving new mod request "+e.getMessage());
+        }
     }
 }

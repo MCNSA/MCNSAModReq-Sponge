@@ -22,11 +22,25 @@ public class ModRequest {
     public int status;
     public UUID responder;
     public String response;
-    public String server;
+    public String server = Configuration.ServerName;
 
     public void setRotation(Double x, Double y, Double z) {
         Vector3d v3d = new Vector3d(x,y,z);
         rotation = v3d;
+    }
+    public String getUser() {
+        return null;
+        //TODO: UUID -> Username conversion
+    }
+    public String getResponder(){
+        if (responder == null) {
+            //Probably console
+            return "Console";
+        }
+        else {
+            return null;
+            //TODO: UUID -> Username conversion
+        }
     }
     public void setLocation(Double x, Double y, Double z, UUID world) {
         //Sanity check on world

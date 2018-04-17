@@ -1,5 +1,6 @@
 package uk.co.maboughey.moqreq.utils;
 
+import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.serializer.TextSerializers;
@@ -54,7 +55,19 @@ public class Messaging {
         player.sendMessage(colour("&4"+message));
     }
 
+    public static void newModReqMod(Player player) {
+        player.sendMessage(colour("&6There has been a new mod request submitted. &F/req &6to view"));
+    }
+
+    public static void newModReqUser(Player player) {
+        player.sendMessage(colour("&6Your mod request has been submitted"));
+    }
+    public static void sendMessage(CommandSource src, String message) {
+        src.sendMessage(colour(message));
+    }
     public static Text colour(String string) {
         return TextSerializers.FORMATTING_CODE.deserialize(string);
     }
+
+
 }
