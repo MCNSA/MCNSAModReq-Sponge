@@ -39,7 +39,7 @@ public class DatabaseManager {
                     "rot_y double NOT NULL, " +
                     "rot_z double NOT NULL, " +
                     "world varchar(50) NOT NULL" +
-                    "status int(2) NOT NULL, " +
+                    "status int(2) NOT NULL DEFAULT '0', " +
                     "responder varchar(50), " +
                     "response TEXT, " +
                     "PRIMARY KEY (id))");
