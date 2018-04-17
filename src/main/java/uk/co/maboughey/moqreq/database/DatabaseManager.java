@@ -17,7 +17,7 @@ public class DatabaseManager {
         //Connect to database
         connect();
         //Create Tables
-
+        createTables();
     }
 
     public void createTables(){
@@ -111,6 +111,8 @@ public class DatabaseManager {
                 preparedStatement.close();
             if(connect != null)
                 connect.close();
+
+            connect = null;
         }
         catch(Exception e) {
             ModReq.log.error("Database exception during close. Message was: "+e.getMessage());

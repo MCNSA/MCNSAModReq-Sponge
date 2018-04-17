@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4ebfa43-6f49-4a05-bad1-cb2bf4ae101e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/ModReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/ModReq.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -14,38 +15,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="DatabaseManager.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="578">
-                    <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                      <element signature="method#getConnection#0;class#DatabaseManager#0" />
-                      <element signature="method#connect#0;class#DatabaseManager#0" />
-                      <element signature="method#close#0;class#DatabaseManager#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ModReq.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/ModReq.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="314">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,8 +32,8 @@
       <file leaf-file-name="DBModRequest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+            <state relative-caret-position="504">
+              <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#386#398#0" expanded="true" />
@@ -66,53 +42,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModRequest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/type/ModRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-213">
-              <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Messaging.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Messaging.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
+            <state relative-caret-position="300">
               <caret line="42" column="78" selection-start-line="42" selection-start-column="78" selection-end-line="42" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Configuration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -144,10 +81,10 @@
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Configuration.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Messaging.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/ModReq.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/type/ModRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/ModReq.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" />
       </list>
     </option>
@@ -341,13 +278,13 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info active="true" anchor="right" id="Maven Projects" order="3" visible="true" weight="0.32995737" />
+      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32900432" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -402,9 +339,6 @@
           <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getConnection#0;class#DatabaseManager#0" />
-            <element signature="method#connect#0;class#DatabaseManager#0" />
-            <element signature="method#close#0;class#DatabaseManager#0" />
           </folding>
         </state>
       </provider>
@@ -459,9 +393,6 @@
           <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getConnection#0;class#DatabaseManager#0" />
-            <element signature="method#connect#0;class#DatabaseManager#0" />
-            <element signature="method#close#0;class#DatabaseManager#0" />
           </folding>
         </state>
       </provider>
@@ -490,16 +421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Messaging.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="42" column="78" selection-start-line="42" selection-start-column="78" selection-end-line="42" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/spongepowered/spongeapi/7.0.0/spongeapi-7.0.0.jar!/org/spongepowered/api/Server.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -518,29 +439,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/ModReq.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="49" column="54" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getConnection#0;class#DatabaseManager#0" />
-            <element signature="method#connect#0;class#DatabaseManager#0" />
-            <element signature="method#close#0;class#DatabaseManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="703">
@@ -555,10 +453,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/ModReq.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Messaging.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="42" column="78" selection-start-line="42" selection-start-column="78" selection-end-line="42" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        <state relative-caret-position="504">
+          <caret line="68" column="52" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#386#398#0" expanded="true" />
