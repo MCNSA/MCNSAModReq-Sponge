@@ -57,6 +57,10 @@ public class ModReq {
 
     @Listener
     public void onLogin(ClientConnectionEvent.Join event){
+        //Check mod is not disabled
+        if (!isEnabled)
+            return;
+
         Player player = event.getTargetEntity();
         //Notify those with permissions if there is any requests open
         if (player.hasPermission("modreq.notify.mod")) {
