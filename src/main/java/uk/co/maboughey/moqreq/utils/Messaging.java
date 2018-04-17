@@ -24,15 +24,16 @@ public class Messaging {
     }
 
     public static void notifyPlayerLogin(Player player) {
-        StringBuilder output = new StringBuilder();
-        output.append("&6Your current mod requests: ");
-
         //Get counts
         int openCount = DBModRequest.getCount(0, player.getUniqueId());
         int claimedCount = DBModRequest.getCount(1, player.getUniqueId());
         int closedUnseen = DBModRequest.getCount(2, player.getUniqueId());
 
+        //Do we need to notify the player?
         if (openCount > 0 || claimedCount > 0 || closedUnseen > 0 ) {
+            StringBuilder output = new StringBuilder();
+            output.append("&6Your current mod requests: ");
+
             //Build the rest of the message
             if (openCount > 0)
                 output.append("&F" + openCount + " &6Open, ");
@@ -44,14 +45,9 @@ public class Messaging {
             //End message
             output.append("Please use /modreq list to view");
 
-
+            //Send the message to the player
+            player.sendMessage(colour(output.toString()));
         }
-        else {
-            output.append("You currently have none that require your attention");
-        }
-
-        //Send the message to the player
-        player.sendMessage(colour(output.toString()));
     }
 
     public static Text colour(String string) {
