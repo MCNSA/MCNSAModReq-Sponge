@@ -31,9 +31,13 @@ public class DatabaseManager {
                     "id int(6) NOT NULL AUTO_INCREMENT, " +
                     "user varchar(50) NOT NULL, " +
                     "message TEXT NOT NULL, " +
-                    "pos_x varchar(10) NOT NULL, " +
-                    "pos_y varchar(10) NOT NULL, " +
-                    "pos_z varchar(10) NOT NULL, " +
+                    "pos_x double NOT NULL, " +
+                    "pos_y double NOT NULL, " +
+                    "pos_z double NOT NULL, " +
+                    "rot_x double NOT NULL, " +
+                    "rot_y double NOT NULL, " +
+                    "rot_z double NOT NULL, " +
+                    "world varchar(50) NOT NULL" +
                     "status int(2) NOT NULL, " +
                     "responder varchar(50), " +
                     "response TEXT, " +
@@ -43,6 +47,7 @@ public class DatabaseManager {
             user is the user that created the modreq
             message is the message the user inputted
             pos_x,y,z is the location where the user submitted their request
+            rot_x,y,z is the direction they are facing
             status is the request status: 0=open, 1=claimed, 2=closed but unread, 3=closed and read buy the user
             responder is the mod that has either claimed or closed the request
             response is the message given to the user by the responder
