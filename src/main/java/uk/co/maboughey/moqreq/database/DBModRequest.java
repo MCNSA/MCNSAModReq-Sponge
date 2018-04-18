@@ -213,6 +213,7 @@ public class DBModRequest {
                     "pos_x, " +
                     "pos_y, " +
                     "pos_z, " +
+                    "world, " +
                     "rot_x, " +
                     "rot_y, " +
                     "rot_z"+
@@ -224,9 +225,10 @@ public class DBModRequest {
             statement.setDouble(4, request.location.getX());
             statement.setDouble(5, request.location.getY());
             statement.setDouble(6, request.location.getZ());
-            statement.setDouble(7, request.rotation.getX());
-            statement.setDouble(8, request.rotation.getY());
-            statement.setDouble(9, request.rotation.getZ());
+            statement.setString(7, request.location.getExtent().getUniqueId().toString());
+            statement.setDouble(8, request.rotation.getX());
+            statement.setDouble(9, request.rotation.getY());
+            statement.setDouble(10, request.rotation.getZ());
 
             statement.executeUpdate();
         }
