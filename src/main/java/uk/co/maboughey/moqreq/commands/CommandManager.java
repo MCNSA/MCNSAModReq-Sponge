@@ -23,11 +23,42 @@ public class CommandManager {
                 .permission("modreq.request")
                 .executor(new ModReqListCommand())
                 .build();
+        CommandSpec modReqOpen = CommandSpec.builder()
+                .description(Text.of("List open mod requests"))
+                .permission("modreq.mod")
+                .executor(new ModReqOpenCommand())
+                .build();
+        CommandSpec modReqClaimed = CommandSpec.builder()
+                .description(Text.of("List claimed mod requests"))
+                .permission("modreq.mod")
+                .executor(new ModReqClaimedCommand())
+                .build();
+        CommandSpec modReqClose = CommandSpec.builder()
+                .description(Text.of("Close a mod request"))
+                .permission("modreq.mod")
+                .executor(new ModReqCloseCommand())
+                .arguments(
+                        GenericArguments.onlyOne(GenericArguments.integer(Text.of("id"))),
+                        GenericArguments.optional(GenericArguments.string(Text.of("message")))
+                )
+                .build();
+        CommandSpec modReqClaim = CommandSpec.builder()
+                .description(Text.of("Claim a mod request"))
+                .permission("modreq.mod")
+                .executor(new ModReqClaimCommand())
+                .arguments(
+                        GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
+                )
+                .build();
         CommandSpec modreqCommand = CommandSpec.builder()
                 .description(Text.of("Submit a Mod Request"))
                 .permission("modreq.request")
                 .executor(new ModReqCommand())
                 .child(modReqList, "list")
+                .child(modReqOpen, "open")
+                .child(modReqClaimed, "claimed")
+                .child(modReqClose, "close")
+                .child(modReqClaim, "claim")
                 .arguments(
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )
