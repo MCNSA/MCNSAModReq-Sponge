@@ -62,6 +62,102 @@ public class DBModRequest {
 
         return output;
     }
+    public static List<ModRequest> getUsersRequests(UUID uuid) {
+        List<ModRequest> output = new ArrayList<ModRequest>();
+
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE status!=3 AND user=?");
+            statement.setString(1, uuid.toString());
+            ResultSet results = statement.executeQuery();
+
+            while (results.next()) {
+                ModRequest request = new ModRequest();
+                request.id = results.getInt("id");
+                request.user = UUID.fromString(results.getString("user"));
+                request.message = results.getString("message");
+                request.status = results.getInt("status");
+                request.response = results.getString("response");
+                request.server = results.getString("server");
+
+                //Handle null responder field
+                String responder = results.getString("responder");
+                if (responder == null) {
+                    request.responder = null;
+                }
+                else {
+                    request.responder = UUID.fromString(results.getString("responder"));
+                }
+
+                //Location info
+                Double pos_x = results.getDouble("pos_x");
+                Double pos_y = results.getDouble("pos_y");
+                Double pos_z = results.getDouble("pos_z");
+                Double rot_x = results.getDouble("rot_x");
+                Double rot_y = results.getDouble("rot_y");
+                Double rot_z = results.getDouble("rot_z");
+                UUID world = UUID.fromString(results.getString("world"));
+
+                request.setLocation(pos_x, pos_y, pos_z, world);
+                request.setRotation(rot_x, rot_y, rot_z);
+
+                output.add(request);
+            }
+
+        }
+        catch (SQLException e) {
+            ModReq.log.error("SQL Error retrieving requests: "+e.getMessage());
+        }
+
+        return output;
+    }
+    public static ModRequest getRequest(int id) {
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE id=?");
+            statement.setInt(1, id);
+            ResultSet results = statement.executeQuery();
+
+            if (results.next()) {
+                ModRequest request = new ModRequest();
+                request.id = results.getInt("id");
+                request.user = UUID.fromString(results.getString("user"));
+                request.message = results.getString("message");
+                request.status = results.getInt("status");
+                request.response = results.getString("response");
+                request.server = results.getString("server");
+
+                //Handle null responder field
+                String responder = results.getString("responder");
+                if (responder == null) {
+                    request.responder = null;
+                }
+                else {
+                    request.responder = UUID.fromString(results.getString("responder"));
+                }
+
+                //Location info
+                Double pos_x = results.getDouble("pos_x");
+                Double pos_y = results.getDouble("pos_y");
+                Double pos_z = results.getDouble("pos_z");
+                Double rot_x = results.getDouble("rot_x");
+                Double rot_y = results.getDouble("rot_y");
+                Double rot_z = results.getDouble("rot_z");
+                UUID world = UUID.fromString(results.getString("world"));
+
+                request.setLocation(pos_x, pos_y, pos_z, world);
+                request.setRotation(rot_x, rot_y, rot_z);
+
+                return request;
+            }
+        }
+        catch (SQLException e) {
+            ModReq.log.error("SQL Error retrieving requests: "+e.getMessage());
+        }
+        return null;
+    }
     public static int getCount(int status, UUID uuid) {
         int count = 0;
 

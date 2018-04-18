@@ -18,10 +18,16 @@ public class CommandManager {
     }
 
     public void modreqCommand() {
+        CommandSpec modReqList = CommandSpec.builder()
+                .description(Text.of("List open and unread Mod requests"))
+                .permission("modreq.request")
+                .executor(new ModReqListCommand())
+                .build();
         CommandSpec modreqCommand = CommandSpec.builder()
                 .description(Text.of("Submit a Mod Request"))
                 .permission("modreq.request")
                 .executor(new ModReqCommand())
+                .child(modReqList, "list")
                 .arguments(
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )

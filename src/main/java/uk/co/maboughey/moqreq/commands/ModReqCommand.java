@@ -18,6 +18,11 @@ import java.util.UUID;
 public class ModReqCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        //Make sure plugin is enabled
+        if (!ModReq.isEnabled) {
+            Messaging.sendMessage(src, "&4Plugin is currently disabled");
+            return CommandResult.success();
+        }
         //Check its actually a player
         if (!(src instanceof Player)) {
             Messaging.sendMessage(src, "&4 You have to be a player to use this command");
