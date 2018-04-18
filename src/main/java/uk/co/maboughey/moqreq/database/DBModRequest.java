@@ -138,4 +138,61 @@ public class DBModRequest {
             ModReq.log.error("Sql error saving new mod request "+e.getMessage());
         }
     }
+    public static void updateRequestDone(ModRequest request){
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET" +
+                    "status=?, " +
+                    "responder=?, " +
+                    "response=? " +
+                    "WHERE id=?");
+
+            statement.setInt(1, request.status);
+            statement.setString(2, request.responder.toString());
+            statement.setString(3, request.response);
+            statement.setInt(4, request.id);
+
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            ModReq.log.error("Sql error updating mod request (Completed) "+e.getMessage());
+        }
+    }
+    public static void updateRequestClaimed(ModRequest request) {
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET" +
+                    "status=?, " +
+                    "responder=?, " +
+                    "WHERE id=?");
+
+            statement.setInt(1, request.status);
+            statement.setString(2, request.responder.toString());
+            statement.setInt(3, request.id);
+
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            ModReq.log.error("Sql error updating mod request (Completed) "+e.getMessage());
+        }
+    }
+    public static void updateRequestRead(ModRequest request) {
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET" +
+                    "status=?, " +
+                    "WHERE id=?");
+
+            statement.setInt(1, request.status);
+            statement.setInt(2, request.id);
+
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            ModReq.log.error("Sql error updating mod request (Completed) "+e.getMessage());
+        }
+    }
 }
