@@ -1,7 +1,6 @@
 package uk.co.maboughey.moqreq.type;
 
 import com.flowpowered.math.vector.Vector3d;
-import com.sun.org.apache.xml.internal.security.utils.JavaUtils;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.world.Location;
 import org.spongepowered.api.world.World;
