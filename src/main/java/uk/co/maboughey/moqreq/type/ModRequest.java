@@ -71,7 +71,8 @@ public class ModRequest {
         switch (this.status) {
             case 0: output = "&4Open"; break;
             case 1: output = "&4Claimed"; break;
-            case 2: output = "&AClosed"; break;
+            case 2: output = "&AUnread"; break;
+            case 3: output = "&AClosed"; break;
         }
         return output;
     }

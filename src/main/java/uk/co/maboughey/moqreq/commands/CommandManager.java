@@ -33,6 +33,14 @@ public class CommandManager {
                 .permission("modreq.mod")
                 .executor(new ModReqClaimedCommand())
                 .build();
+        CommandSpec modReqUnclaim = CommandSpec.builder()
+                .description(Text.of("Unassign mod from request"))
+                .permission("modreq.mod")
+                .arguments(
+                        GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
+                )
+                .executor(new modReqUnclaimCommand())
+                .build();
         CommandSpec modReqClose = CommandSpec.builder()
                 .description(Text.of("Close a mod request"))
                 .permission("modreq.mod")
@@ -50,6 +58,14 @@ public class CommandManager {
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
                 )
                 .build();
+        CommandSpec modReqShowMessage = CommandSpec.builder()
+                .description(Text.of("View a request's message"))
+                .permission("modreq.mod")
+                .arguments(
+                        GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
+                )
+                .executor(new modReqShowMessage())
+                .build();
         CommandSpec modreqCommand = CommandSpec.builder()
                 .description(Text.of("Submit a Mod Request"))
                 .permission("modreq.request")
@@ -59,6 +75,8 @@ public class CommandManager {
                 .child(modReqClaimed, "claimed")
                 .child(modReqClose, "close")
                 .child(modReqClaim, "claim")
+                .child(modReqUnclaim, "unclaim")
+                .child(modReqShowMessage, "showmessage")
                 .arguments(
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )

@@ -1,42 +1,37 @@
 package uk.co.maboughey.moqreq.commands;
 
-import com.mysql.cj.core.util.TestUtils;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;
 import org.spongepowered.api.command.spec.CommandExecutor;
 import org.spongepowered.api.entity.living.player.Player;
-import org.spongepowered.api.text.BookView;
 import org.spongepowered.api.text.Text;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
 import uk.co.maboughey.moqreq.utils.BookViewBuilder;
 import uk.co.maboughey.moqreq.utils.Messaging;
 
-import java.util.List;
-
-public class ModReqListCommand implements CommandExecutor {
+public class modReqShowMessage implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
-        //Make sure person sending command is a player
+        int id = args.<Integer>getOne(Text.of("id")).get();
+
+        //make sure its a player
         if (!(src instanceof Player)) {
-            Messaging.sendMessage(src, "&4You must be a player to use this command");
+            Messaging.sendMessage(src, "&4You can only run this command as a player");
+        }
+        //Try and get the Request
+        ModRequest request = DBModRequest.getRequest(id);
+
+        //Does the id exist?
+        if (request == null) {
+            Messaging.sendMessage(src, "&4Invalid request id");
             return CommandResult.success();
         }
 
-        //Get the mod requests
-        List<ModRequest> requests = DBModRequest.getUsersRequests(((Player) src).getUniqueId());
-
-        //Check if there is any
-        if (requests.size() < 1) {
-            //No requests. Lets tell them and finish
-            Messaging.sendMessage(src, "&6You have no mod requests to view");
-            return CommandResult.success();
-        }
-
-        //Show them to the user
-        ((Player) src).sendBookView(BookViewBuilder.playerBook(requests));
+        //Show the message
+        ((Player) src).sendBookView(BookViewBuilder.viewMessage(request));
         return CommandResult.success();
     }
 }

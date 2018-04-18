@@ -1,12 +1,10 @@
 package uk.co.maboughey.moqreq.commands;
 
-import org.spongepowered.api.block.tileentity.CommandBlock;
 import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;
 import org.spongepowered.api.command.source.CommandBlockSource;
-import org.spongepowered.api.command.source.ConsoleSource;
 import org.spongepowered.api.command.spec.CommandExecutor;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.Text;
@@ -16,7 +14,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.UUID;
 
-public class ModReqClaimCommand implements CommandExecutor {
+public class modReqUnclaimCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         //Get sender's info
@@ -44,21 +42,21 @@ public class ModReqClaimCommand implements CommandExecutor {
             return CommandResult.success();
         }
 
-        //Is it claimed?
+        //Is it open?
         if (request.status != 0) {
-            Messaging.sendMessage(src, "&4That request has already been claimed");
+            Messaging.sendMessage(src, "&4That request has not been claimed");
             return CommandResult.success();
         }
 
-        //Let's  claim it
-        request.responder = uuid;
-        request.status = 1;
+        //Let's  clear the claim
+        request.responder = null;
+        request.status = 0;
 
         //Save the request
         DBModRequest.updateRequestClaimed(request);
 
         //Tell the user
-        Messaging.sendMessage(src, "You have claimed request id: "+id);
+        Messaging.sendMessage(src, "You have been unassigned to this request: "+id);
 
         //end of command
         return CommandResult.success();

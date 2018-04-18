@@ -70,7 +70,7 @@ public class DBModRequest {
         try {
             Connection connection = DatabaseManager.getConnection();
 
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE status!=3 AND user=?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE user=? ORDER BY id DESC");
             statement.setString(1, uuid.toString());
             ResultSet results = statement.executeQuery();
 
@@ -236,11 +236,7 @@ public class DBModRequest {
         try {
             Connection connection = DatabaseManager.getConnection();
 
-            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET" +
-                    "status=?, " +
-                    "responder=?, " +
-                    "response=? " +
-                    "WHERE id=?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET status=?, responder=?, response=? WHERE id=?");
 
             statement.setInt(1, request.status);
             statement.setString(2, request.responder.toString());
@@ -250,17 +246,14 @@ public class DBModRequest {
             statement.executeUpdate();
         }
         catch (SQLException e){
-            ModReq.log.error("Sql error updating mod request (Completed) "+e.getMessage());
+            ModReq.log.error("Sql error updating mod request (Done) "+e.getMessage());
         }
     }
     public static void updateRequestClaimed(ModRequest request) {
         try {
             Connection connection = DatabaseManager.getConnection();
 
-            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET" +
-                    "status=?, " +
-                    "responder=?, " +
-                    "WHERE id=?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET status=?, responder=? WHERE id=?");
 
             statement.setInt(1, request.status);
             statement.setString(2, request.responder.toString());
@@ -269,16 +262,14 @@ public class DBModRequest {
             statement.executeUpdate();
         }
         catch (SQLException e){
-            ModReq.log.error("Sql error updating mod request (Completed) "+e.getMessage());
+            ModReq.log.error("Sql error updating mod request (Claimed) "+e.getMessage());
         }
     }
     public static void updateRequestRead(ModRequest request) {
         try {
             Connection connection = DatabaseManager.getConnection();
 
-            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET" +
-                    "status=?, " +
-                    "WHERE id=?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET status=? WHERE id=?");
 
             statement.setInt(1, request.status);
             statement.setInt(2, request.id);
