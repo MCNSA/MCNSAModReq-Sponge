@@ -206,18 +206,8 @@ public class DBModRequest {
     public static void saveNewRequest(ModRequest request) {
         try {
             Connection connection = DatabaseManager.getConnection();
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO modReq (" +
-                    "user, " +
-                    "message, " +
-                    "server, " +
-                    "pos_x, " +
-                    "pos_y, " +
-                    "pos_z, " +
-                    "world, " +
-                    "rot_x, " +
-                    "rot_y, " +
-                    "rot_z"+
-                    ") VALUES (?,?,?,?,?,?,?,?,?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO modReq (user, message, server, pos_x, pos_y, pos_z, world, " +
+                    "rot_x, rot_y, rot_z) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             statement.setString(1, request.user.toString());
             statement.setString(2, request.message);
@@ -234,6 +224,8 @@ public class DBModRequest {
         }
         catch (SQLException e){
             ModReq.log.error("Sql error saving new mod request "+e.getMessage());
+            ModReq.log.error(e.getSQLState());
+            ModReq.log.error(e.getLocalizedMessage());
         }
     }
     public static void updateRequestDone(ModRequest request){

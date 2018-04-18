@@ -34,12 +34,12 @@ public class DatabaseManager {
                     "server varchar(50) NOT NULL, " +
                     "user varchar(50) NOT NULL, " +
                     "message TEXT NOT NULL, " +
-                    "pos_x double NOT NULL, " +
-                    "pos_y double NOT NULL, " +
-                    "pos_z double NOT NULL, " +
-                    "rot_x double NOT NULL, " +
-                    "rot_y double NOT NULL, " +
-                    "rot_z double NOT NULL, " +
+                    "pos_x double, " +
+                    "pos_y double, " +
+                    "pos_z double, " +
+                    "rot_x double, " +
+                    "rot_y double, " +
+                    "rot_z double, " +
                     "world varchar(50) NOT NULL, " +
                     "status int(2) NOT NULL DEFAULT '0', " +
                     "responder varchar(50), " +
