@@ -7,7 +7,9 @@ import org.spongepowered.api.world.World;
 import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.utils.Configuration;
 import uk.co.maboughey.moqreq.utils.Messaging;
+import uk.co.maboughey.moqreq.utils.Username;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;
@@ -31,8 +33,7 @@ public class ModRequest {
         rotation = v3d;
     }
     public String getUser() {
-        return null;
-        //TODO: UUID -> Username conversion
+        return Username.getUsername(user);
     }
     public String getResponder(){
         if (responder == null) {
@@ -40,8 +41,7 @@ public class ModRequest {
             return "Console";
         }
         else {
-            return null;
-            //TODO: UUID -> Username conversion
+            return Username.getUsername(responder);
         }
     }
     public void setLocation(Double x, Double y, Double z, UUID world) {
