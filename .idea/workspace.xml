@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d4ebfa43-6f49-4a05-bad1-cb2bf4ae101e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/database/DBModRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/database/DBModRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/modreq-1.0-SNAPSHOT-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/modreq-1.0-SNAPSHOT-shaded.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/modreq-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/modreq-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-modreq-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-modreq-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -364,7 +358,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32900432" />

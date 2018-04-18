@@ -42,11 +42,11 @@ public class ModReqListCommand implements CommandExecutor {
 
             //If claimed
             if (request.status == 1) {
-                responseText = "&6Claimed by: &F"+request.getResponder();
+                responseText = "&6Claimed by: \n&r"+request.getResponder();
             }
             //if closed
             else if (request.status == 2) {
-                responseText = "&6Closed by: &r"+request.getResponder()+"\n&6Comment: &r"+request.response;
+                responseText = "&6Closed by: &r"+request.getResponder()+"\n&6Comment: \n&r"+request.response;
             }
             book.addPage(Messaging.colour(
                     "&6Date: &r"+request.date
