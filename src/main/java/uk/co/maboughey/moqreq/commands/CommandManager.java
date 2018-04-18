@@ -39,7 +39,7 @@ public class CommandManager {
                 .executor(new ModReqCloseCommand())
                 .arguments(
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id"))),
-                        GenericArguments.optional(GenericArguments.string(Text.of("message")))
+                        GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )
                 .build();
         CommandSpec modReqClaim = CommandSpec.builder()
