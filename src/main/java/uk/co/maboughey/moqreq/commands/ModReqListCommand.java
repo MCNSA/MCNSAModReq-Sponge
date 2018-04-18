@@ -46,11 +46,12 @@ public class ModReqListCommand implements CommandExecutor {
             }
             //if closed
             else if (request.status == 2) {
-                responseText = "&6Closed by: &F"+request.getResponder()+Text.NEW_LINE+"&6Comment: &F"+request.response;
+                responseText = "&6Closed by: &r"+request.getResponder()+"\n&6Comment: &r"+request.response;
             }
             book.addPage(Messaging.colour(
-                    "&6Date: &F"+request.date+" &6Status: "+request.getStatus()+Text.NEW_LINE
-                    +request.message+Text.NEW_LINE+responseText
+                    "&6Date: &F"+request.date
+                            +"\n&6Status: "+request.getStatus()+
+                            "\n&r"+request.message+"\n"+responseText
                     ));
         }
 
