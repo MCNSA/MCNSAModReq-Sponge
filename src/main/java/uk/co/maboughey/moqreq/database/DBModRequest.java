@@ -31,6 +31,7 @@ public class DBModRequest {
                 request.status = results.getInt("status");
                 request.response = results.getString("response");
                 request.server = results.getString("server");
+                request.date = results.getDate("date");
 
                 //Handle null responder field
                 String responder = results.getString("responder");
@@ -209,7 +210,7 @@ public class DBModRequest {
         try {
             Connection connection = DatabaseManager.getConnection();
             PreparedStatement statement = connection.prepareStatement("INSERT INTO modReq (user, message, server, pos_x, pos_y, pos_z, world, " +
-                    "rot_x, rot_y, rot_z, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    "rot_x, rot_y, rot_z, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             statement.setString(1, request.user.toString());
             statement.setString(2, request.message);
