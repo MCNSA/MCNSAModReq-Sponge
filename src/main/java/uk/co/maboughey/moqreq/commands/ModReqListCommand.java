@@ -49,7 +49,7 @@ public class ModReqListCommand implements CommandExecutor {
                 responseText = "&6Closed by: &r"+request.getResponder()+"\n&6Comment: &r"+request.response;
             }
             book.addPage(Messaging.colour(
-                    "&6Date: &F"+request.date
+                    "&6Date: &r"+request.date
                             +"\n&6Status: "+request.getStatus()+
                             "\n&r"+request.message+"\n"+responseText
                     ));
