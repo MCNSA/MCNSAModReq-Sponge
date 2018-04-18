@@ -14,6 +14,8 @@ public class DatabaseManager {
     private static PreparedStatement preparedStatement;
 
     public DatabaseManager() {
+        if (!ModReq.isEnabled)
+            return;
         //Connect to database
         connect();
         //Create Tables
@@ -22,7 +24,7 @@ public class DatabaseManager {
 
     public void createTables(){
         //Check connection does exist
-        if (connect != null)
+        if (connect == null)
             return;
 
         try {

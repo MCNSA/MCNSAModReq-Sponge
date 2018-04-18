@@ -50,7 +50,7 @@ public class Configuration {
         if (!Files.exists(configFile))
             try {
                 //Log that we are loading default configuration and disable plugin
-                ModReq.log.info("&4Loading default config. Plugin is disabled until you reload");
+                ModReq.log.info("Loading default config. Plugin is disabled until you reload");
                 ModReq.isEnabled = false;
 
                 //Load default config

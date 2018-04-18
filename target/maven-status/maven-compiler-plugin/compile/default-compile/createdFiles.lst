@@ -8,4 +8,5 @@ uk\co\maboughey\moqreq\commands\ModReqCommand.class
 uk\co\maboughey\moqreq\database\DatabaseManager.class
 mcmod.info
 uk\co\maboughey\moqreq\utils\Configuration.class
+uk\co\maboughey\moqreq\utils\Username.class
 uk\co\maboughey\moqreq\ModReq.class
