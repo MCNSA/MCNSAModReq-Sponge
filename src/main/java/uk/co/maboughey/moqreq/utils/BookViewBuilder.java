@@ -8,7 +8,9 @@ import org.spongepowered.api.text.format.TextStyles;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BookViewBuilder {
 
@@ -50,7 +52,8 @@ public class BookViewBuilder {
             case (2): title = Text.of("Closed Mod Requests"); break;
             case (3): title = Text.of("Closed Mod Requests"); break;
         }
-
+        //RequestMessageStorage
+        HashMap<Integer, Text> messages = new HashMap<Integer, Text>();
 
         BookView.Builder book = BookView.builder()
                 .title(title);
@@ -91,11 +94,19 @@ public class BookViewBuilder {
                                  "&6Date: &r"+request.date+"\n" +
                                  "&6Status: "+request.getStatus() +
                                  "&r\n";
+            //Check if long message
             if (request.message.length() > 30) {
                 basicString += request.message.substring(0, 30)+"...\n";
                 more = Text.builder("[View More]")
                         .color(TextColors.BLUE)
-                        .onClick(TextActions.runCommand("/modreq showmessage "+request.id)).build();
+                        .onClick(TextActions.changePage(requests.size()+1)).build();
+
+                //Add new page
+                Text back = Text.builder("\n[Back]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.changePage(i+1))
+                        .build();
+                messages.put(requests.size()+1+i, Text.of(request.message).concat(back));
             }
             else {
                 basicString += request.message;
@@ -108,18 +119,14 @@ public class BookViewBuilder {
                     .concat(claimLink)
                     .concat(reset)
                     .concat(unClaim));
+
+
+
         }
-
-        return book.build();
-    }
-    public static BookView viewMessage(ModRequest request) {
-        BookView.Builder book = BookView.builder()
-                .title(Text.of("Viewing request "+request.id));
-
-        if (request.message.length() <= 255) {
-            book.addPage(Text.of(request.message));
+        //Add the message texts
+        for (Map.Entry entry: messages.entrySet()) {
+            book.addPage((Text) entry.getValue());
         }
-
         return book.build();
     }
 }

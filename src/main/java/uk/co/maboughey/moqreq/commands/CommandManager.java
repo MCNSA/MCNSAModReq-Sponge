@@ -58,14 +58,6 @@ public class CommandManager {
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
                 )
                 .build();
-        CommandSpec modReqShowMessage = CommandSpec.builder()
-                .description(Text.of("View a request's message"))
-                .permission("modreq.mod")
-                .arguments(
-                        GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
-                )
-                .executor(new modReqShowMessage())
-                .build();
         CommandSpec modReqTeleport = CommandSpec.builder()
                 .description(Text.of("Teleport to request location"))
                 .permission("modreq.mod")
@@ -84,7 +76,6 @@ public class CommandManager {
                 .child(modReqClose, "close")
                 .child(modReqClaim, "claim")
                 .child(modReqUnclaim, "unclaim")
-                .child(modReqShowMessage, "showmessage")
                 .child(modReqTeleport, "tp" , "teleport")
                 .arguments(
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))

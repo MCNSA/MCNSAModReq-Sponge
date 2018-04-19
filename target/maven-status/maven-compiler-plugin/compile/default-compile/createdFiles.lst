@@ -13,7 +13,6 @@ uk\co\maboughey\moqreq\utils\Configuration.class
 uk\co\maboughey\moqreq\utils\Username.class
 uk\co\maboughey\moqreq\commands\CommandManager.class
 uk\co\maboughey\moqreq\utils\Log.class
-uk\co\maboughey\moqreq\commands\modReqShowMessage.class
 uk\co\maboughey\moqreq\database\DBModRequest.class
 uk\co\maboughey\moqreq\commands\ModReqOpenCommand.class
 uk\co\maboughey\moqreq\database\DatabaseManager.class
