@@ -8,6 +8,7 @@ import org.spongepowered.api.text.format.TextStyles;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,57 +16,203 @@ import java.util.Map;
 public class BookViewBuilder {
 
     public static BookView playerBook(List<ModRequest> requests) {
+        int pageNumber = 0;
+        int messagePage = 0;
+        //RequestMessageStorage
+        List<Text> messages = new ArrayList<Text>();
+
 
         BookView.Builder book = BookView.builder()
                 .title(Text.of("Your Mod Requests"));
         //Lets output
         for (int i = 0; i < requests.size(); i++) {
+            //Keep track of pages
+            pageNumber++;
+            //Get the request
             ModRequest request = requests.get(i);
+
+            //Empty texts for later use
             String responseText = "";
+            Text reset = Messaging.colour("&r");
+            Text more = Text.of("");
+            Text responseMore = Text.of("");
+
+
+            //Build the output
+            String basicString = "&6Date: &r"+request.date+"\n" +
+                    "&6Status: "+request.getStatus() +
+                    "&r\n";
+
+            //Check if long message
+            if (request.message.length() > 30) {
+                basicString += request.message.substring(0, 30)+"...\n";
+                more = Text.builder("[View More]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.changePage(requests.size()+1+messagePage)).build();
+
+                //Add new page
+                Text back = Text.builder("\n[Back]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.changePage(i+1))
+                        .build();
+                messages.add(Text.of(request.message).concat(back));
+                messagePage++;
+            }
+            else {
+                basicString += request.message;
+            }
 
             //If claimed
             if (request.status == 1) {
-                responseText = "&6Claimed by: \n&r"+request.getResponder();
+                responseText = "\n&6Claimed by: \n&r"+request.getResponder();
             }
             //if closed
-            else if (request.status == 2) {
-                responseText = "&6Closed by: &r"+request.getResponder()+"\n&6Comment: \n&r"+request.response;
-                //Set read
-                request.status = 3;
-                DBModRequest.updateRequestRead(request);
-            }
-            book.addPage(Messaging.colour(
-                    "&6Date: &r"+request.date
-                            +"\n&6Status: "+request.getStatus()+
-                            "\n&r"+request.message+"\n"+responseText
-            ));
-        }
+            else if (request.status == 2 || request.status == 3) {
+                responseText = "&6\nClosed by: &r"+request.getResponder()+"\n&6Comment: \n&r";
 
+                //set as read
+                if (request.status == 2) {
+                    request.status = 3;
+                    //Tell the database
+                    DBModRequest.updateRequestRead(request);
+                }
+
+                //Check for long message
+                if (request.response.length() > 30) {
+                    //Only show portion of message
+                    responseText += request.response.substring(0, 30);
+                    //Create link
+                    responseMore = Text.builder("\n[View More]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.changePage(requests.size()+1+messagePage)).build();
+
+                    //Add new page
+                    Text back = Text.builder("\n[Back]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.changePage(i+1))
+                            .build();
+                    messages.add(Text.of(request.response).concat(back));
+                    messagePage++;
+                }
+                else {
+                    //Just add the message
+                    responseText += request.response;
+                }
+            }
+            //Add to book
+            book.addPage(Messaging.colour(basicString)
+                    .concat(more)
+                    .concat(reset)
+                    .concat(Messaging.colour(responseText))
+                    .concat(responseMore)
+                    .concat(reset));
+        }
+        //Add the message texts
+        for (int i = 0; i < messages.size(); i++) {
+            book.addPage(messages.get(i));
+        }
         return book.build();
     }
     public static BookView viewRequests(List<ModRequest> requests, int status) {
+        //Set the title of the book
         Text title = Text.of("");
-
         switch (status){
             case (0): title = Text.of("Open Mod Requests"); break;
             case (1): title = Text.of("Claimed Mod Requests"); break;
             case (2): title = Text.of("Closed Mod Requests"); break;
             case (3): title = Text.of("Closed Mod Requests"); break;
         }
+
+        //Tracking ints
+        int pageNumber = 0;
+        int messagePage = 0;
+
         //RequestMessageStorage
-        HashMap<Integer, Text> messages = new HashMap<Integer, Text>();
+        List<Text> messages = new ArrayList<Text>();
+
 
         BookView.Builder book = BookView.builder()
                 .title(title);
         //Lets output
         for (int i = 0; i < requests.size(); i++) {
+            //Keep track of pages
+            pageNumber++;
+            //Get the request
             ModRequest request = requests.get(i);
-            String responseText = "";
 
-            Text claimLink = Text.of("");
-            Text unClaim = Text.of("");
+            //Empty texts for later use
+            String responseText = "";
             Text reset = Messaging.colour("&r");
             Text more = Text.of("");
+            Text responseMore = Text.of("");
+            Text claimLink = Text.of("");
+            Text unClaim = Text.of("");
+
+
+            //Build the output
+            String basicString = "&6User: &r"+request.getUser()+"\n" +
+                    "&6Date: &r"+request.date+"\n" +
+                    "&6Status: "+request.getStatus() +
+                    "&r\n";
+
+            //Check if long message
+            if (request.message.length() > 30) {
+                basicString += request.message.substring(0, 30)+"...\n";
+                more = Text.builder("[View More]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.changePage(requests.size()+1+messagePage)).build();
+
+                //Add new page
+                Text back = Text.builder("\n[Back]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.changePage(i+1))
+                        .build();
+                messages.add(Text.of(request.message).concat(back));
+                messagePage++;
+            }
+            else {
+                basicString += request.message;
+            }
+
+            //If claimed
+            if (request.status == 1) {
+                responseText = "\n&6Claimed by: \n&r"+request.getResponder();
+            }
+            //if closed
+            else if (request.status == 2 || request.status == 3) {
+                responseText = "&6\nClosed by: &r"+request.getResponder()+"\n&6Comment: \n&r";
+
+                //set as read
+                if (request.status == 2) {
+                    request.status = 3;
+                    //Tell the database
+                    DBModRequest.updateRequestRead(request);
+                }
+
+                //Check for long message
+                if (request.response.length() > 30) {
+                    //Only show portion of message
+                    responseText += request.response.substring(0, 30);
+                    //Create link
+                    responseMore = Text.builder("\n[View More]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.changePage(requests.size()+1+messagePage)).build();
+
+                    //Add new page
+                    Text back = Text.builder("\n[Back]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.changePage(i+1))
+                            .build();
+                    messages.add(Text.of(request.response).concat(back));
+                    messagePage++;
+                }
+                else {
+                    //Just add the message
+                    responseText += request.response;
+                }
+            }
+
+            //Add the commands
             if (request.status == 0) {
                 claimLink = Text.builder("\n[Claim Request]")
                         .style(TextStyles.UNDERLINE)
@@ -73,59 +220,28 @@ public class BookViewBuilder {
                         .onClick(TextActions.runCommand("/modreq claim "+request.id)).build();
             }
             if (request.status == 1) {
+                //This request has been claimed. Show teleport link and unclaim link
                 claimLink = Text.builder("\n[Teleport]")
                         .color(TextColors.BLUE)
                         .onClick(TextActions.runCommand("/modreq tp "+request.id)).build();
                 unClaim = Text.builder("  [Unclaim]")
-                                .color(TextColors.BLUE)
-                                .onClick(TextActions.runCommand("/modreq unclaim "+request.id)).build();
-            }
-            //If claimed
-            if (request.status == 1) {
-                responseText = "\n&6Claimed by: \n&r"+request.getResponder();
-            }
-            //if closed
-            else if (request.status == 2 || request.status == 3) {
-                responseText = "&6Closed by: &r"+request.getResponder()+"\n&6Comment: \n&r"+request.response;
-            }
-
-            //Build the output
-            String basicString = "&6User: &r"+request.getUser()+"\n" +
-                                 "&6Date: &r"+request.date+"\n" +
-                                 "&6Status: "+request.getStatus() +
-                                 "&r\n";
-            //Check if long message
-            if (request.message.length() > 30) {
-                basicString += request.message.substring(0, 30)+"...\n";
-                more = Text.builder("[View More]")
                         .color(TextColors.BLUE)
-                        .onClick(TextActions.changePage(requests.size()+1)).build();
-
-                //Add new page
-                Text back = Text.builder("\n[Back]")
-                        .color(TextColors.BLUE)
-                        .onClick(TextActions.changePage(i+1))
-                        .build();
-                messages.put(requests.size()+1+i, Text.of(request.message).concat(back));
+                        .onClick(TextActions.runCommand("/modreq unclaim "+request.id)).build();
             }
-            else {
-                basicString += request.message;
-            }
-
+            //Add to book
             book.addPage(Messaging.colour(basicString)
                     .concat(more)
                     .concat(reset)
                     .concat(Messaging.colour(responseText))
+                    .concat(responseMore)
+                    .concat(reset)
                     .concat(claimLink)
                     .concat(reset)
                     .concat(unClaim));
-
-
-
         }
         //Add the message texts
-        for (Map.Entry entry: messages.entrySet()) {
-            book.addPage((Text) entry.getValue());
+        for (int i = 0; i < messages.size(); i++) {
+            book.addPage(messages.get(i));
         }
         return book.build();
     }
