@@ -8,6 +8,7 @@ import org.spongepowered.api.command.source.CommandBlockSource;
 import org.spongepowered.api.command.spec.CommandExecutor;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.Text;
+import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
 import uk.co.maboughey.moqreq.utils.Messaging;
@@ -17,6 +18,10 @@ import java.util.UUID;
 public class ModReqUnclaimCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        if (!ModReq.isEnabled) {
+            Messaging.sendMessage(src, "&4Plugin is currently disabled");
+            return CommandResult.success();
+        }
         //Get sender's info
         UUID uuid = null;
         if (src instanceof CommandBlockSource) {

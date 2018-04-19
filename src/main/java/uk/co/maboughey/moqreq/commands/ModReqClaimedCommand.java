@@ -8,6 +8,7 @@ import org.spongepowered.api.command.source.CommandBlockSource;
 import org.spongepowered.api.command.source.ConsoleSource;
 import org.spongepowered.api.command.spec.CommandExecutor;
 import org.spongepowered.api.entity.living.player.Player;
+import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
 import uk.co.maboughey.moqreq.utils.BookViewBuilder;
@@ -18,6 +19,10 @@ import java.util.List;
 public class ModReqClaimedCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        if (!ModReq.isEnabled) {
+            Messaging.sendMessage(src, "&4Plugin is currently disabled");
+            return CommandResult.success();
+        }
         //Check it isnt commandBlock
         if (src instanceof CommandBlockSource) { return CommandResult.success(); }
 

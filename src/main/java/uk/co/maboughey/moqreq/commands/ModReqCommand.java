@@ -18,6 +18,10 @@ import java.util.UUID;
 public class ModReqCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        if (!ModReq.isEnabled) {
+            Messaging.sendMessage(src, "&4Plugin is currently disabled");
+            return CommandResult.success();
+        }
         //Make sure plugin is enabled
         if (!ModReq.isEnabled) {
             Messaging.sendMessage(src, "&4Plugin is currently disabled");

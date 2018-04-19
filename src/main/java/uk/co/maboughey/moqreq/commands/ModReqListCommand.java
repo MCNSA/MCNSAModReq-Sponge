@@ -9,6 +9,7 @@ import org.spongepowered.api.command.spec.CommandExecutor;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.BookView;
 import org.spongepowered.api.text.Text;
+import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
 import uk.co.maboughey.moqreq.utils.BookViewBuilder;
@@ -19,6 +20,10 @@ import java.util.List;
 public class ModReqListCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        if (!ModReq.isEnabled) {
+            Messaging.sendMessage(src, "&4Plugin is currently disabled");
+            return CommandResult.success();
+        }
         //Make sure person sending command is a player
         if (!(src instanceof Player)) {
             Messaging.sendMessage(src, "&4You must be a player to use this command");

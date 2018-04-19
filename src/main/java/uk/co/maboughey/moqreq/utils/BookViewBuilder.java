@@ -4,14 +4,11 @@ import org.spongepowered.api.text.BookView;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.action.TextActions;
 import org.spongepowered.api.text.format.TextColors;
-import org.spongepowered.api.text.format.TextStyles;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class BookViewBuilder {
 
@@ -150,7 +147,7 @@ public class BookViewBuilder {
 
 
             //Build the output
-            String basicString = "&6User: &r"+request.getUser()+"\n" +
+            String basicString = "&6ID: &r"+request.id+"\n&6User: &r"+request.getUser()+"\n" +
                     "&6Date: &r"+request.date+"\n" +
                     "&6Status: "+request.getStatus() +
                     "&r\n";
@@ -215,7 +212,6 @@ public class BookViewBuilder {
             //Add the commands
             if (request.status == 0) {
                 claimLink = Text.builder("\n[Claim Request]")
-                        .style(TextStyles.UNDERLINE)
                         .color(TextColors.BLUE)
                         .onClick(TextActions.runCommand("/modreq claim "+request.id)).build();
             }
@@ -223,10 +219,12 @@ public class BookViewBuilder {
                 //This request has been claimed. Show teleport link and unclaim link
                 claimLink = Text.builder("\n[Teleport]")
                         .color(TextColors.BLUE)
-                        .onClick(TextActions.runCommand("/modreq tp "+request.id)).build();
+                        .onClick(TextActions.runCommand("/modreq tp "+request.id))
+                        .build();
                 unClaim = Text.builder("  [Unclaim]")
                         .color(TextColors.BLUE)
-                        .onClick(TextActions.runCommand("/modreq unclaim "+request.id)).build();
+                        .onClick(TextActions.runCommand("/modreq unclaim "+request.id))
+                        .build();
             }
             //Add to book
             book.addPage(Messaging.colour(basicString)
@@ -234,9 +232,7 @@ public class BookViewBuilder {
                     .concat(reset)
                     .concat(Messaging.colour(responseText))
                     .concat(responseMore)
-                    .concat(reset)
                     .concat(claimLink)
-                    .concat(reset)
                     .concat(unClaim));
         }
         //Add the message texts

@@ -8,6 +8,7 @@ import org.spongepowered.api.command.source.CommandBlockSource;
 import org.spongepowered.api.command.spec.CommandExecutor;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.Text;
+import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
 import uk.co.maboughey.moqreq.utils.Messaging;
@@ -18,6 +19,10 @@ import java.util.UUID;
 public class ModReqCloseCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+        if (!ModReq.isEnabled) {
+            Messaging.sendMessage(src, "&4Plugin is currently disabled");
+            return CommandResult.success();
+        }
         //Get sender's info
         UUID uuid = null;
         if (src instanceof CommandBlockSource) {
@@ -43,6 +48,12 @@ public class ModReqCloseCommand implements CommandExecutor {
         //Does the id exist?
         if (request == null) {
             Messaging.sendMessage(src, "&4Invalid request id");
+            return CommandResult.success();
+        }
+
+        //Don't override already closed commands
+        if (request.status > 1) {
+            Messaging.sendMessage(src, "&4This request is already closed.");
             return CommandResult.success();
         }
 
