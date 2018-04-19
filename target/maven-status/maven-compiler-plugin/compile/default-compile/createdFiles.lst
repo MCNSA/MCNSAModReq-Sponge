@@ -1,5 +1,6 @@
 uk\co\maboughey\moqreq\commands\ModReqListCommand.class
 uk\co\maboughey\moqreq\commands\modReqUnclaimCommand.class
+uk\co\maboughey\moqreq\commands\ModReqTeleportCommand.class
 uk\co\maboughey\moqreq\utils\BookViewBuilder.class
 uk\co\maboughey\moqreq\utils\Messaging.class
 uk\co\maboughey\moqreq\type\ModRequest.class

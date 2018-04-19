@@ -71,11 +71,9 @@ public class BookViewBuilder {
             }
             if (request.status == 1) {
                 claimLink = Text.builder("\n[Teleport]")
-                        .style(TextStyles.UNDERLINE)
                         .color(TextColors.BLUE)
                         .onClick(TextActions.runCommand("/modreq tp "+request.id)).build();
-                unClaim = Text.builder("\n\n[Unclaim]")
-                                .style(TextStyles.UNDERLINE)
+                unClaim = Text.builder("  [Unclaim]")
                                 .color(TextColors.BLUE)
                                 .onClick(TextActions.runCommand("/modreq unclaim "+request.id)).build();
             }
@@ -96,7 +94,6 @@ public class BookViewBuilder {
             if (request.message.length() > 30) {
                 basicString += request.message.substring(0, 30)+"...\n";
                 more = Text.builder("[View More]")
-                        .style(TextStyles.UNDERLINE)
                         .color(TextColors.BLUE)
                         .onClick(TextActions.runCommand("/modreq showmessage "+request.id)).build();
             }
@@ -109,6 +106,7 @@ public class BookViewBuilder {
                     .concat(reset)
                     .concat(Messaging.colour(responseText))
                     .concat(claimLink)
+                    .concat(reset)
                     .concat(unClaim));
         }
 

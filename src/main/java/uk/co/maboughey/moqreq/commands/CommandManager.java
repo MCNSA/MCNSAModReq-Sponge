@@ -66,6 +66,14 @@ public class CommandManager {
                 )
                 .executor(new modReqShowMessage())
                 .build();
+        CommandSpec modReqTeleport = CommandSpec.builder()
+                .description(Text.of("Teleport to request location"))
+                .permission("modreq.mod")
+                .arguments(
+                        GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
+                )
+                .executor(new ModReqTeleportCommand())
+                .build();
         CommandSpec modreqCommand = CommandSpec.builder()
                 .description(Text.of("Submit a Mod Request"))
                 .permission("modreq.request")
@@ -77,6 +85,7 @@ public class CommandManager {
                 .child(modReqClaim, "claim")
                 .child(modReqUnclaim, "unclaim")
                 .child(modReqShowMessage, "showmessage")
+                .child(modReqTeleport, "tp" , "teleport")
                 .arguments(
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )

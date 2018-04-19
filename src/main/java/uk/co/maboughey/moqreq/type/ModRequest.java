@@ -57,9 +57,10 @@ public class ModRequest {
     }
     public void teleport(Player player) {
         //Check to see if it is this server
-        if (server == Configuration.ServerName) {
+        if (server.contains(Configuration.ServerName)) {
             player.setRotation(rotation);
             player.setLocation(location);
+            Messaging.sendMessage(player, "Teleported to request: "+id);
         }
         else {
             Messaging.errorMessage(player, "This request is not from this server");
