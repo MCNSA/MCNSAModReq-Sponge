@@ -14,7 +14,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.UUID;
 
-public class modReqUnclaimCommand implements CommandExecutor {
+public class ModReqUnclaimCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         //Get sender's info

@@ -1,5 +1,4 @@
 uk\co\maboughey\moqreq\commands\ModReqListCommand.class
-uk\co\maboughey\moqreq\commands\modReqUnclaimCommand.class
 uk\co\maboughey\moqreq\commands\ModReqTeleportCommand.class
 uk\co\maboughey\moqreq\utils\BookViewBuilder.class
 uk\co\maboughey\moqreq\utils\Messaging.class
@@ -15,6 +14,7 @@ uk\co\maboughey\moqreq\commands\CommandManager.class
 uk\co\maboughey\moqreq\utils\Log.class
 uk\co\maboughey\moqreq\database\DBModRequest.class
 uk\co\maboughey\moqreq\commands\ModReqOpenCommand.class
+uk\co\maboughey\moqreq\commands\ModReqUnclaimCommand.class
 uk\co\maboughey\moqreq\database\DatabaseManager.class
 mcmod.info
 uk\co\maboughey\moqreq\ModReq.class

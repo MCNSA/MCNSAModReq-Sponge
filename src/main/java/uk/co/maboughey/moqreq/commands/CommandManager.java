@@ -39,7 +39,7 @@ public class CommandManager {
                 .arguments(
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
                 )
-                .executor(new modReqUnclaimCommand())
+                .executor(new ModReqUnclaimCommand())
                 .build();
         CommandSpec modReqClose = CommandSpec.builder()
                 .description(Text.of("Close a mod request"))

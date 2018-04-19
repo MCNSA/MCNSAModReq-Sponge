@@ -60,6 +60,8 @@ public class ModReqCommand implements CommandExecutor {
         //Tell the user
         Messaging.newModReqUser((Player)src);
 
+        //TODO: Notify mods that are online about the new mod request
+
         return CommandResult.success();
     }
 }

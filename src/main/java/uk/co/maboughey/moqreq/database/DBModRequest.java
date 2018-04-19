@@ -70,7 +70,7 @@ public class DBModRequest {
         try {
             Connection connection = DatabaseManager.getConnection();
 
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE user=? ORDER BY id DESC");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE user=? ORDER BY status ASC, id DESC");
             statement.setString(1, uuid.toString());
             ResultSet results = statement.executeQuery();
 
