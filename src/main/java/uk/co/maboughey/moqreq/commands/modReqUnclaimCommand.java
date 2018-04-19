@@ -43,7 +43,7 @@ public class modReqUnclaimCommand implements CommandExecutor {
         }
 
         //Is it open?
-        if (request.status != 0) {
+        if (request.status == 0) {
             Messaging.sendMessage(src, "&4That request has not been claimed");
             return CommandResult.success();
         }
@@ -56,7 +56,7 @@ public class modReqUnclaimCommand implements CommandExecutor {
         DBModRequest.updateRequestClaimed(request);
 
         //Tell the user
-        Messaging.sendMessage(src, "You have been unassigned to this request: "+id);
+        Messaging.sendMessage(src, "You have been removed from this request: "+id);
 
         //end of command
         return CommandResult.success();

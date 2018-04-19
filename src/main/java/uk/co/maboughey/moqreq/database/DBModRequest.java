@@ -256,7 +256,10 @@ public class DBModRequest {
             PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET status=?, responder=? WHERE id=?");
 
             statement.setInt(1, request.status);
-            statement.setString(2, request.responder.toString());
+            if (request.responder == null)
+                statement.setString(2, null);
+            else
+                statement.setString(2, request.responder.toString());
             statement.setInt(3, request.id);
 
             statement.executeUpdate();
