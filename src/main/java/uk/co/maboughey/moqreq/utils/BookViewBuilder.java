@@ -144,6 +144,7 @@ public class BookViewBuilder {
             Text responseMore = Text.of("");
             Text claimLink = Text.of("");
             Text unClaim = Text.of("");
+            Text close = Text.of("");
 
 
             //Build the output
@@ -214,6 +215,11 @@ public class BookViewBuilder {
                 claimLink = Text.builder("\n[Claim Request]")
                         .color(TextColors.BLUE)
                         .onClick(TextActions.runCommand("/modreq claim "+request.id)).build();
+
+                close = Text.builder("\n[Close without note]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.runCommand("/modreq close "+request.id+" No note"))
+                        .build();
             }
             if (request.status == 1) {
                 //This request has been claimed. Show teleport link and unclaim link
@@ -225,6 +231,10 @@ public class BookViewBuilder {
                         .color(TextColors.BLUE)
                         .onClick(TextActions.runCommand("/modreq unclaim "+request.id))
                         .build();
+                close = Text.builder("\n[Close without note]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.runCommand("/modreq close "+request.id+" No note"))
+                        .build();
             }
             //Add to book
             book.addPage(Messaging.colour(basicString)
@@ -233,7 +243,8 @@ public class BookViewBuilder {
                     .concat(Messaging.colour(responseText))
                     .concat(responseMore)
                     .concat(claimLink)
-                    .concat(unClaim));
+                    .concat(unClaim)
+                    .concat(close));
         }
         //Add the message texts
         for (int i = 0; i < messages.size(); i++) {

@@ -56,15 +56,11 @@ public class ModReqCommand implements CommandExecutor {
 
         DBModRequest.saveNewRequest(request);
 
-        //notify mods
-        List<Player> mods = ModReq.getMods();
-        for (int i = 0; i < mods.size(); i++)  {
-            Messaging.newModReqMod(mods.get(i));
-        }
         //Tell the user
         Messaging.newModReqUser((Player)src);
 
-        //TODO: Notify mods that are online about the new mod request
+        //Notify mods that are online about the new mod request
+        Messaging.notifyModsNew();
 
         return CommandResult.success();
     }

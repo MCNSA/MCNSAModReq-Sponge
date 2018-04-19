@@ -19,10 +19,7 @@ import uk.co.maboughey.moqreq.utils.Log;
 import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 @Plugin(id="mcnsamodreq", name="MCNSA ModReq", version="1.0-Sponge")
 public class ModReq {
@@ -73,7 +70,7 @@ public class ModReq {
             //Has permission so lets tell them about mod messages
             Messaging.notifyModLogin(player);
         }
-        else if (player.hasPermission("modreq.notify.player")) {
+        if (player.hasPermission("modreq.notify.player")) {
             //Notify player about their own
             Messaging.notifyPlayerLogin(player);
         }
@@ -91,5 +88,15 @@ public class ModReq {
             }
         }
         return mods;
+    }
+    public static Player getPlayer(UUID uuid) {
+        Collection<Player> players = Sponge.getServer().getOnlinePlayers();
+        for (Iterator<Player> iterator = players.iterator(); iterator.hasNext();) {
+            Player player = iterator.next();
+            if (player.getUniqueId().equals(uuid)) {
+                return player;
+            }
+        }
+        return null;
     }
 }

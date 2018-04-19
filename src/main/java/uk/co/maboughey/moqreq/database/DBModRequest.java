@@ -192,9 +192,10 @@ public class DBModRequest {
             }
             else if (status == 1){
                 statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=? AND responder=?");
+                statement.setString(2, uuid.toString());
             }
             statement.setInt(1, status);
-            statement.setString(2, uuid.toString());
+
             ResultSet results = statement.executeQuery();
 
             if (results.next()) {
