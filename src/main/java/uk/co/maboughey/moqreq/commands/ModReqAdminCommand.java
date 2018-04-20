@@ -16,7 +16,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.List;
 
-public class ModReqOpenCommand implements CommandExecutor {
+public class ModReqAdminCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (!ModReq.isEnabled) {
@@ -27,12 +27,12 @@ public class ModReqOpenCommand implements CommandExecutor {
         if (src instanceof CommandBlockSource) { return CommandResult.success(); }
 
         //Get the mod requests
-        List<ModRequest> requests = DBModRequest.getRequests(0, ((Player)src).getUniqueId());
+        List<ModRequest> requests = DBModRequest.getAdminRequests();
 
         //Check if there is any
         if (requests.size() < 1) {
             //No requests. Lets tell them and finish
-            Messaging.sendMessage(src, "&6There are no open mod requests to view");
+            Messaging.sendMessage(src, "&6There are no escalated mod requests to view");
             return CommandResult.success();
         }
 

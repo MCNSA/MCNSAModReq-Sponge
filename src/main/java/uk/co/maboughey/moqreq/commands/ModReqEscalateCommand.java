@@ -41,15 +41,28 @@ public class ModReqEscalateCommand implements CommandExecutor {
             return CommandResult.success();
         }
 
+        //has it already been escalated?
+        if (request.escalated) {
+            Messaging.sendMessage(src, "&4This request has already been escalated");
+            return CommandResult.success();
+        }
+
         //Check the status
         if (request.status > 1) {
             //Closed or unread
             Messaging.sendMessage(src, "&4That request has already been closed");
             return CommandResult.success();
         }
+        //Set request as escalated
+        request.escalated = true;
+        //If Claimed, Remove
+        request.responder = null;
+        //Save the request
+        DBModRequest.updateRequestEscalation(request);
 
         //Send a message to discord
-        Discord.sendAdmin(message, request.id, request.message, src);
+        //TODO: Commented out for testing purposes
+        //Discord.sendAdmin(message, request.id, request.message, src);
 
         //Send a message to the sender
         Messaging.sendMessage(src, "&6The admins have been notified about this request");

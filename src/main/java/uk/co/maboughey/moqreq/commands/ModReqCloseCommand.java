@@ -57,6 +57,12 @@ public class ModReqCloseCommand implements CommandExecutor {
             return CommandResult.success();
         }
 
+        //Check if escalated, if so check its an admin
+        if (request.escalated && !src.hasPermission("modreq.admin")) {
+            Messaging.sendMessage(src, "&4This request has been escalated. You cannot close it");
+            return CommandResult.success();
+        }
+
         //Lets fill out the details
         request.responder = uuid;
         request.response = message;

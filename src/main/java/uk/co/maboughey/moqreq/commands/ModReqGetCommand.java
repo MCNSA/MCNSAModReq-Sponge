@@ -51,9 +51,7 @@ public class ModReqGetCommand implements CommandExecutor {
             Messaging.consoleRequest(request, src);
         }
         else {
-            List<ModRequest> requests = new ArrayList<ModRequest>();
-            requests.add(request);
-            ((Player) src).sendBookView(BookViewBuilder.viewRequest(request));
+                ((Player) src).sendBookView(BookViewBuilder.viewRequest(request, (Player) src));
         }
         return CommandResult.success();
     }

@@ -1,5 +1,6 @@
 package uk.co.maboughey.moqreq.utils;
 
+import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.BookView;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.action.TextActions;
@@ -33,10 +34,15 @@ public class BookViewBuilder {
             Text reset = Messaging.colour("&r");
             Text more = Text.of("");
             Text responseMore = Text.of("");
+            String basicString = "";
+            Text escalation = Text.of("");
 
-
+            //Notify if escalated
+            if (request.escalated) {
+                escalation = Messaging.colour("&4Escalated to Admins\n");
+            }
             //Build the output
-            String basicString = "&6Date: &r"+request.date+"\n" +
+            basicString +="&6Date: &r"+request.date+"\n" +
                     "&6Status: "+request.getStatus() +
                     "&r\n";
 
@@ -97,7 +103,8 @@ public class BookViewBuilder {
                 }
             }
             //Add to book
-            book.addPage(Messaging.colour(basicString)
+            book.addPage(escalation
+                    .concat(Messaging.colour(basicString))
                     .concat(more)
                     .concat(reset)
                     .concat(Messaging.colour(responseText))
@@ -110,7 +117,7 @@ public class BookViewBuilder {
         }
         return book.build();
     }
-    public static BookView viewRequests(List<ModRequest> requests, int status) {
+    public static BookView viewRequests(List<ModRequest> requests, int status, Player player) {
         //Set the title of the book
         Text title = Text.of("");
         switch (status){
@@ -145,10 +152,23 @@ public class BookViewBuilder {
             Text claimLink = Text.of("");
             Text unClaim = Text.of("");
             Text close = Text.of("");
+            String basicString = "";
+            Text escalation = Text.of("");
+            Text escalate = Text.of("");
 
+            if (!request.escalated) {
+                escalate = Text.builder("\n[Escalate]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.runCommand("/modreq mod e " + request.id))
+                        .build();
+            }
 
+            //Notify if escalated
+            if (request.escalated) {
+                escalation = Messaging.colour("&4Escalated to Admins\n");
+            }
             //Build the output
-            String basicString = "&6ID: &r"+request.id+"\n&6User: &r"+request.getUser()+"\n" +
+            basicString += "&6ID: &r"+request.id+"\n&6User: &r"+request.getUser()+"\n" +
                     "&6Date: &r"+request.date+"\n" +
                     "&6Status: "+request.getStatus() +
                     "&r\n";
@@ -205,39 +225,45 @@ public class BookViewBuilder {
 
             //Add the commands
             if (request.status == 0) {
-                claimLink = Text.builder("\n[Claim Request]")
-                        .color(TextColors.BLUE)
-                        .onClick(TextActions.runCommand("/modreq mod claim "+request.id)).build();
+                if (!request.escalated || player.hasPermission("modreq.admin")) {
+                    claimLink = Text.builder("\n[Claim Request]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.runCommand("/modreq mod claim " + request.id)).build();
 
-                close = Text.builder("\n[Close without note]")
-                        .color(TextColors.BLUE)
-                        .onClick(TextActions.runCommand("/modreq mod close "+request.id+" No note"))
-                        .build();
+                    close = Text.builder("\n[Close without note]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.runCommand("/modreq mod close " + request.id + " No note"))
+                            .build();
+                }
             }
             if (request.status == 1) {
-                //This request has been claimed. Show teleport link and unclaim link
-                claimLink = Text.builder("\n[Teleport]")
-                        .color(TextColors.BLUE)
-                        .onClick(TextActions.runCommand("/modreq mod tp "+request.id))
-                        .build();
-                unClaim = Text.builder("  [Unclaim]")
-                        .color(TextColors.BLUE)
-                        .onClick(TextActions.runCommand("/modreq mod unclaim "+request.id))
-                        .build();
-                close = Text.builder("\n[Close without note]")
-                        .color(TextColors.BLUE)
-                        .onClick(TextActions.runCommand("/modreq mod close "+request.id+" No note"))
-                        .build();
+                if (!request.escalated || player.hasPermission("modreq.admin")) {
+                    //This request has been claimed. Show teleport link and unclaim link
+                    claimLink = Text.builder("\n[Teleport]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.runCommand("/modreq mod tp " + request.id))
+                            .build();
+                    unClaim = Text.builder("  [Unclaim]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.runCommand("/modreq mod unclaim " + request.id))
+                            .build();
+                    close = Text.builder("\n[Close without note]")
+                            .color(TextColors.BLUE)
+                            .onClick(TextActions.runCommand("/modreq mod close " + request.id + " No note"))
+                            .build();
+                }
             }
             //Add to book
-            book.addPage(Messaging.colour(basicString)
+            book.addPage(escalation
+                    .concat(Messaging.colour(basicString))
                     .concat(more)
                     .concat(reset)
                     .concat(Messaging.colour(responseText))
                     .concat(responseMore)
                     .concat(claimLink)
                     .concat(unClaim)
-                    .concat(close));
+                    .concat(close)
+                    .concat(escalate));
         }
         //Add the message texts
         for (int i = 0; i < messages.size(); i++) {
@@ -245,7 +271,7 @@ public class BookViewBuilder {
         }
         return book.build();
     }
-    public static BookView viewRequest(ModRequest request) {
+    public static BookView viewRequest(ModRequest request, Player player) {
         //Set the title of the book
         Text title = Text.of("Viewing Request");
         int messagePage = 0;
@@ -264,10 +290,23 @@ public class BookViewBuilder {
         Text claimLink = Text.of("");
         Text unClaim = Text.of("");
         Text close = Text.of("");
+        String basicString = "";
+        Text escalation = Text.of("");
+        Text escalate = Text.of("");
 
+        if (!request.escalated) {
+            escalate = Text.builder("\n[Escalate]")
+                    .color(TextColors.BLUE)
+                    .onClick(TextActions.runCommand("/modreq mod e " + request.id))
+                    .build();
+        }
 
+        //Notify if escalated
+        if (request.escalated) {
+            escalation = Messaging.colour("&4Escalated to Admins\n");
+        }
         //Build the output
-        String basicString = "&6ID: &r"+request.id+"\n&6User: &r"+request.getUser()+"\n" +
+        basicString += "&6ID: &r"+request.id+"\n&6User: &r"+request.getUser()+"\n" +
                 "&6Date: &r"+request.date+"\n" +
                 "&6Status: "+request.getStatus() +
                 "&r\n";
@@ -323,39 +362,45 @@ public class BookViewBuilder {
 
         //Add the commands
         if (request.status == 0) {
-            claimLink = Text.builder("\n[Claim Request]")
-                    .color(TextColors.BLUE)
-                    .onClick(TextActions.runCommand("/modreq mod claim "+request.id)).build();
+            if (!request.escalated || player.hasPermission("modreq.admin")) {
+                claimLink = Text.builder("\n[Claim Request]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.runCommand("/modreq mod claim " + request.id)).build();
 
-            close = Text.builder("\n[Close without note]")
-                    .color(TextColors.BLUE)
-                    .onClick(TextActions.runCommand("/modreq mod close "+request.id+" No note"))
-                    .build();
+                close = Text.builder("\n[Close without note]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.runCommand("/modreq mod close " + request.id + " No note"))
+                        .build();
+            }
         }
         if (request.status == 1) {
-            //This request has been claimed. Show teleport link and unclaim link
-            claimLink = Text.builder("\n[Teleport]")
-                    .color(TextColors.BLUE)
-                    .onClick(TextActions.runCommand("/modreq mod tp "+request.id))
-                    .build();
-            unClaim = Text.builder("  [Unclaim]")
-                    .color(TextColors.BLUE)
-                    .onClick(TextActions.runCommand("/modreq mod unclaim "+request.id))
-                    .build();
-            close = Text.builder("\n[Close without note]")
-                    .color(TextColors.BLUE)
-                    .onClick(TextActions.runCommand("/modreq mod close "+request.id+" No note"))
-                    .build();
+            if (!request.escalated || player.hasPermission("modreq.admin")) {
+                //This request has been claimed. Show teleport link and unclaim link
+                claimLink = Text.builder("\n[Teleport]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.runCommand("/modreq mod tp " + request.id))
+                        .build();
+                unClaim = Text.builder("  [Unclaim]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.runCommand("/modreq mod unclaim " + request.id))
+                        .build();
+                close = Text.builder("\n[Close without note]")
+                        .color(TextColors.BLUE)
+                        .onClick(TextActions.runCommand("/modreq mod close " + request.id + " No note"))
+                        .build();
+            }
         }
         //Add to book
-        book.addPage(Messaging.colour(basicString)
+        book.addPage(escalation
+                .concat(Messaging.colour(basicString))
                 .concat(more)
                 .concat(reset)
                 .concat(Messaging.colour(responseText))
                 .concat(responseMore)
                 .concat(claimLink)
                 .concat(unClaim)
-                .concat(close));
+                .concat(close)
+                .concat(escalate));
         //Add the message texts
         for (int i = 0; i < messages.size(); i++) {
             book.addPage(messages.get(i));

@@ -27,7 +27,7 @@ public class ModReqClaimedCommand implements CommandExecutor {
         if (src instanceof CommandBlockSource || src instanceof ConsoleSource) { return CommandResult.success(); }
 
         //Get the mod requests
-        List<ModRequest> requests = DBModRequest.getRequests(1);
+        List<ModRequest> requests = DBModRequest.getRequests(1, ((Player)src).getUniqueId());
 
         //Check if there is any
         if (requests.size() < 1) {
@@ -37,7 +37,7 @@ public class ModReqClaimedCommand implements CommandExecutor {
         }
 
         //Display to sender
-        ((Player) src).sendBookView(BookViewBuilder.viewRequests(requests, 1));
+        ((Player) src).sendBookView(BookViewBuilder.viewRequests(requests, 1, (Player) src));
 
         return CommandResult.success();
     }

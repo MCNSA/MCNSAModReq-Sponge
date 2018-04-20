@@ -20,6 +20,7 @@ uk\co\maboughey\moqreq\type\ModRequest.class
 uk\co\maboughey\moqreq\commands\ModReqCloseCommand.class
 uk\co\maboughey\moqreq\commands\ModReqGetCommand.class
 uk\co\maboughey\moqreq\commands\CommandManager.class
+uk\co\maboughey\moqreq\commands\ModReqAdminCommand.class
 fr\d0p1\hookscord\utils\Field.class
 uk\co\maboughey\moqreq\commands\ModReqUnclaimCommand.class
 fr\d0p1\hookscord\utils\Message.class

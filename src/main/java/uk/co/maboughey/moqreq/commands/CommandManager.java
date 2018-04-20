@@ -5,6 +5,7 @@ import org.spongepowered.api.command.args.GenericArguments;
 import org.spongepowered.api.command.spec.CommandSpec;
 import org.spongepowered.api.plugin.PluginContainer;
 import org.spongepowered.api.text.Text;
+import uk.co.maboughey.moqreq.ModReq;
 
 public class CommandManager {
 
@@ -20,7 +21,7 @@ public class CommandManager {
     public void modreqCommand() {
         CommandSpec modReqList = CommandSpec.builder()
                 .description(Text.of("Display your mod requests"))
-                .permission("modreq.request")
+                .permission("modreq.user")
                 .executor(new ModReqListCommand())
                 .build();
         CommandSpec modReqOpen = CommandSpec.builder()
@@ -83,9 +84,15 @@ public class CommandManager {
                 )
                 .executor(new ModReqEscalateCommand())
                 .build();
+        CommandSpec ModReqAdmin = CommandSpec.builder()
+                .description(Text.of("Display escalated requests"))
+                .permission("modreq.admin")
+                .executor(new ModReqAdminCommand())
+                .build();
         CommandSpec modReqMod = CommandSpec.builder()
                 .description(Text.of("Mod commands"))
                 .permission("modreq.mod")
+                .executor(new ModReqOpenCommand())
                 .child(modReqOpen, "open", "vo")
                 .child(modReqClaimed, "claimed", "vc")
                 .child(modReqClose, "close", "cl")
@@ -97,10 +104,11 @@ public class CommandManager {
                 .build();
         CommandSpec modreqCommand = CommandSpec.builder()
                 .description(Text.of("Submit a Mod Request"))
-                .permission("modreq.request")
+                .permission("modreq.user")
                 .executor(new ModReqCommand())
                 .child(modReqList, "list")
                 .child(modReqMod, "mod")
+                .child(ModReqAdmin, "admin")
                 .arguments(
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )

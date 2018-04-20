@@ -2,8 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4ebfa43-6f49-4a05-bad1-cb2bf4ae101e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimedCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimedCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCloseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCloseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqEscalateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqEscalateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqGetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqGetCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqOpenCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqOpenCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/type/ModRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/type/ModRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/BookViewBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/BookViewBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/CommandManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/CommandManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqClaimCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqClaimCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqClaimedCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqClaimedCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqCloseCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqCloseCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqEscalateCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqEscalateCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqGetCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqGetCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqOpenCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/commands/ModReqOpenCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/database/DBModRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/database/DBModRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/database/DatabaseManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/database/DatabaseManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/type/ModRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/type/ModRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/utils/BookViewBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/uk/co/maboughey/moqreq/utils/BookViewBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/modreq-1.0-SNAPSHOT-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/modreq-1.0-SNAPSHOT-shaded.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/modreq-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/modreq-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-modreq-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-modreq-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,82 +55,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBModRequest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DBModRequest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="225" column="34" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
+            <state relative-caret-position="416">
+              <caret line="366" column="5" selection-start-line="366" selection-start-column="5" selection-end-line="366" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#getRequests#0;class#DBModRequest#0" />
                 <element signature="method#getUsersRequests#0;class#DBModRequest#0" />
+                <element signature="method#getRequest#0;class#DBModRequest#0" />
                 <element signature="method#getCount#0;class#DBModRequest#0" />
                 <element signature="method#getModCount#0;class#DBModRequest#0" />
+                <element signature="method#saveNewRequest#0;class#DBModRequest#0" />
                 <element signature="method#updateRequestDone#0;class#DBModRequest#0" />
                 <element signature="method#updateRequestClaimed#0;class#DBModRequest#0" />
                 <element signature="method#updateRequestRead#0;class#DBModRequest#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModReqGetCommand.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqGetCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
-              <folding>
-                <element signature="e#1866#1878#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BookViewBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/BookViewBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="243" column="42" lean-forward="true" selection-start-line="243" selection-start-column="42" selection-end-line="243" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4780#4786#0" expanded="true" />
-                <element signature="e#10580#10586#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModReqCommand.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModRequest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/type/ModRequest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#updateRequestEscalation#0;class#DBModRequest#0" />
+                <element signature="method#getRequestsEscalated#0;class#DBModRequest#0" />
+                <element signature="method#getAdminRequests#0;class#DBModRequest#0" />
               </folding>
             </state>
           </provider>
@@ -112,7 +82,7 @@
       <file leaf-file-name="Messaging.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Messaging.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1317">
+            <state relative-caret-position="399">
               <caret line="91" column="41" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -157,7 +127,6 @@
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/SubCommandArg.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ReqCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Username.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaim.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/modReqShowMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandExecutorm.java" />
@@ -173,18 +142,20 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Configuration.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Discord.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqEscalateCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimedCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqOpenCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCloseCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/BookViewBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqGetCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Messaging.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/type/ModRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCloseCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqGetCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqEscalateCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/BookViewBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqAdminCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqOpenCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimedCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java" />
       </list>
     </option>
   </component>
@@ -327,6 +298,9 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="uk.co.maboughey.moqreq.commands" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="uk.co.maboughey.moqreq.commands" />
     </key>
@@ -475,20 +449,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
@@ -699,38 +663,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-859">
-          <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/modReqShowMessage.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqListCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqTeleportCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqUnclaimCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fr/d0p1/hookscord/utils/Field.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="839">
@@ -745,41 +678,6 @@
             <element signature="e#989#990#0" expanded="true" />
             <element signature="e#1031#1032#0" expanded="true" />
             <element signature="e#1066#1067#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/d0p1/hookscord/utils/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#2165#0" expanded="true" />
-            <element signature="e#847#848#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#1021#1022#0" expanded="true" />
-            <element signature="e#1066#1067#0" expanded="true" />
-            <element signature="e#1332#1333#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1413#1414#0" expanded="true" />
-            <element signature="e#1454#1455#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#1539#1540#0" expanded="true" />
-            <element signature="e#1596#1597#0" expanded="true" />
-            <element signature="e#1645#1646#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/fr/d0p1/hookscord/Hookscord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="1" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#3503#0" expanded="true" />
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -823,20 +721,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqEscalateCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/d0p1/hookscord/Hookscord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="41" selection-end-column="9" />
+        <state relative-caret-position="1870">
+          <caret line="110" column="1" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#3503#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/fr/d0p1/hookscord/utils/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+            <element signature="e#924#925#0" expanded="true" />
+            <element signature="e#966#967#0" expanded="true" />
+            <element signature="e#1021#1022#0" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1413#1414#0" expanded="true" />
+            <element signature="e#1454#1455#0" expanded="true" />
+            <element signature="e#1500#1501#0" expanded="true" />
+            <element signature="e#1539#1540#0" expanded="true" />
+            <element signature="e#1596#1597#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/type/ModRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="47" column="51" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Discord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
+        <state relative-caret-position="388">
           <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/BookViewBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="41" column="67" selection-start-line="41" selection-start-column="67" selection-end-line="41" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -845,18 +795,97 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/CommandManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+        <state relative-caret-position="365">
+          <caret line="105" column="61" lean-forward="true" selection-start-line="105" selection-start-column="61" selection-end-line="105" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqAdminCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="29" column="64" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqUnclaimCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqEscalateCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="56" column="33" lean-forward="true" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="62" column="8" lean-forward="true" selection-start-line="62" selection-start-column="8" selection-end-line="63" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqTeleportCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimedCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="29" column="91" selection-start-line="29" selection-start-column="91" selection-end-line="29" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="58" column="30" lean-forward="true" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqGetCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqOpenCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="99">
+          <caret line="29" column="91" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqListCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCloseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-43">
+          <caret line="49" column="63" lean-forward="true" selection-start-line="49" selection-start-column="63" selection-end-line="49" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -870,63 +899,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCloseCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="9" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="30" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqClaimedCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/BookViewBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="243" column="42" lean-forward="true" selection-start-line="243" selection-start-column="42" selection-end-line="243" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4780#4786#0" expanded="true" />
-            <element signature="e#10580#10586#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqGetCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
-          <folding>
-            <element signature="e#1866#1878#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/utils/Messaging.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1317">
+        <state relative-caret-position="399">
           <caret line="91" column="41" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/commands/ModReqCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -935,27 +911,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/database/DBModRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="225" column="34" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
+        <state relative-caret-position="416">
+          <caret line="366" column="5" selection-start-line="366" selection-start-column="5" selection-end-line="366" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getRequests#0;class#DBModRequest#0" />
             <element signature="method#getUsersRequests#0;class#DBModRequest#0" />
+            <element signature="method#getRequest#0;class#DBModRequest#0" />
             <element signature="method#getCount#0;class#DBModRequest#0" />
             <element signature="method#getModCount#0;class#DBModRequest#0" />
+            <element signature="method#saveNewRequest#0;class#DBModRequest#0" />
             <element signature="method#updateRequestDone#0;class#DBModRequest#0" />
             <element signature="method#updateRequestClaimed#0;class#DBModRequest#0" />
             <element signature="method#updateRequestRead#0;class#DBModRequest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/maboughey/moqreq/type/ModRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#updateRequestEscalation#0;class#DBModRequest#0" />
+            <element signature="method#getRequestsEscalated#0;class#DBModRequest#0" />
+            <element signature="method#getAdminRequests#0;class#DBModRequest#0" />
           </folding>
         </state>
       </provider>

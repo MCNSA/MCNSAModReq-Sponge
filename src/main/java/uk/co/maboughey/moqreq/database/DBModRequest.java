@@ -1,4 +1,5 @@
 package uk.co.maboughey.moqreq.database;
+import org.spongepowered.api.Sponge;
 import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.type.ModRequest;
 
@@ -13,13 +14,17 @@ import java.util.UUID;
 
 public class DBModRequest {
 
-    public static List<ModRequest> getRequests(int status) {
+    public static List<ModRequest> getRequests(int status, UUID uuid) {
         List<ModRequest> output = new ArrayList<ModRequest>();
 
         try {
             Connection connection = DatabaseManager.getConnection();
-
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE status=?");
+            String sql = "";
+            if (Sponge.getServer().getPlayer(uuid).get().hasPermission("modreq.admin"))
+                sql= "SELECT * FROM modReq WHERE status=?";
+            else
+                sql= "SELECT * FROM modReq WHERE status=? AND escalated=0";
+            PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, status);
             ResultSet results = statement.executeQuery();
 
@@ -32,6 +37,7 @@ public class DBModRequest {
                 request.response = results.getString("response");
                 request.server = results.getString("server");
                 request.date = results.getDate("date");
+                request.escalated = results.getBoolean("escalated");
 
                 //Handle null responder field
                 String responder = results.getString("responder");
@@ -83,6 +89,7 @@ public class DBModRequest {
                 request.response = results.getString("response");
                 request.server = results.getString("server");
                 request.date = results.getDate("date");
+                request.escalated = results.getBoolean("escalated");
 
                 //Handle null responder field
                 String responder = results.getString("responder");
@@ -131,6 +138,7 @@ public class DBModRequest {
                 request.status = results.getInt("status");
                 request.response = results.getString("response");
                 request.server = results.getString("server");
+                request.escalated = results.getBoolean("escalated");
 
                 //Handle null responder field
                 String responder = results.getString("responder");
@@ -187,11 +195,18 @@ public class DBModRequest {
         try {
             Connection connection = DatabaseManager.getConnection();
             PreparedStatement statement = null;
+
             if (status == 0) {
-                statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=?");
+                if (Sponge.getServer().getPlayer(uuid).get().hasPermission("modreq.admin"))
+                    statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=?");
+                else
+                    statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=? AND escalated=0");
             }
             else if (status == 1){
-                statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=? AND responder=?");
+                if (Sponge.getServer().getPlayer(uuid).get().hasPermission("modreq.admin"))
+                    statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=? AND responder=?");
+                else
+                    statement = connection.prepareStatement("SELECT COUNT(id) FROM modReq WHERE status=? AND responder=? AND escalated=0");
                 statement.setString(2, uuid.toString());
             }
             statement.setInt(1, status);
@@ -211,7 +226,7 @@ public class DBModRequest {
         try {
             Connection connection = DatabaseManager.getConnection();
             PreparedStatement statement = connection.prepareStatement("INSERT INTO modReq (user, message, server, pos_x, pos_y, pos_z, world, " +
-                    "rot_x, rot_y, rot_z, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    "rot_x, rot_y, rot_z, date, escalated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
             statement.setString(1, request.user.toString());
             statement.setString(2, request.message);
@@ -224,6 +239,7 @@ public class DBModRequest {
             statement.setDouble(9, request.rotation.getY());
             statement.setDouble(10, request.rotation.getZ());
             statement.setDate(11, request.date);
+            statement.setBoolean(12, request.escalated);
 
             statement.executeUpdate();
         }
@@ -283,5 +299,121 @@ public class DBModRequest {
         catch (SQLException e){
             ModReq.log.error("Sql error updating mod request (Completed) "+e.getMessage());
         }
+    }
+    public static void updateRequestEscalation(ModRequest request) {
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("UPDATE modReq SET escalated=? WHERE id=?");
+
+            statement.setBoolean(1, request.escalated);
+            statement.setInt(2, request.id);
+
+            statement.executeUpdate();
+        }
+        catch (SQLException e){
+            ModReq.log.error("Sql error updating mod request (Completed) "+e.getMessage());
+        }
+    }
+    public static List<ModRequest> getRequestsEscalated() {
+        List<ModRequest> output = new ArrayList<ModRequest>();
+
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE escalated=1");
+            ResultSet results = statement.executeQuery();
+
+            while (results.next()) {
+                ModRequest request = new ModRequest();
+                request.id = results.getInt("id");
+                request.user = UUID.fromString(results.getString("user"));
+                request.message = results.getString("message");
+                request.status = results.getInt("status");
+                request.response = results.getString("response");
+                request.server = results.getString("server");
+                request.date = results.getDate("date");
+
+                //Handle null responder field
+                String responder = results.getString("responder");
+                if (responder == null) {
+                    request.responder = null;
+                }
+                else {
+                    request.responder = UUID.fromString(results.getString("responder"));
+                }
+
+                //Location info
+                Double pos_x = results.getDouble("pos_x");
+                Double pos_y = results.getDouble("pos_y");
+                Double pos_z = results.getDouble("pos_z");
+                Double rot_x = results.getDouble("rot_x");
+                Double rot_y = results.getDouble("rot_y");
+                Double rot_z = results.getDouble("rot_z");
+                UUID world = UUID.fromString(results.getString("world"));
+
+                request.setLocation(pos_x, pos_y, pos_z, world);
+                request.setRotation(rot_x, rot_y, rot_z);
+
+                output.add(request);
+            }
+
+        }
+        catch (SQLException e) {
+            ModReq.log.error("SQL Error retrieving escalated requests: "+e.getMessage());
+        }
+
+        return output;
+    }
+    public static List<ModRequest> getAdminRequests() {
+        List<ModRequest> output = new ArrayList<ModRequest>();
+
+        try {
+            Connection connection = DatabaseManager.getConnection();
+
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM modReq WHERE status=0 AND escalated=1");
+            ResultSet results = statement.executeQuery();
+
+            while (results.next()) {
+                ModRequest request = new ModRequest();
+                request.id = results.getInt("id");
+                request.user = UUID.fromString(results.getString("user"));
+                request.message = results.getString("message");
+                request.status = results.getInt("status");
+                request.response = results.getString("response");
+                request.server = results.getString("server");
+                request.date = results.getDate("date");
+                request.escalated = results.getBoolean("escalated");
+
+                //Handle null responder field
+                String responder = results.getString("responder");
+                if (responder == null) {
+                    request.responder = null;
+                }
+                else {
+                    request.responder = UUID.fromString(results.getString("responder"));
+                }
+
+                //Location info
+                Double pos_x = results.getDouble("pos_x");
+                Double pos_y = results.getDouble("pos_y");
+                Double pos_z = results.getDouble("pos_z");
+                Double rot_x = results.getDouble("rot_x");
+                Double rot_y = results.getDouble("rot_y");
+                Double rot_z = results.getDouble("rot_z");
+                UUID world = UUID.fromString(results.getString("world"));
+
+                request.setLocation(pos_x, pos_y, pos_z, world);
+                request.setRotation(rot_x, rot_y, rot_z);
+
+                output.add(request);
+            }
+
+        }
+        catch (SQLException e) {
+            ModReq.log.error("SQL Error retrieving requests: "+e.getMessage());
+        }
+
+        return output;
     }
 }

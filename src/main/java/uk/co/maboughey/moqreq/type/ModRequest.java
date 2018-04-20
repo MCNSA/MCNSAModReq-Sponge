@@ -26,6 +26,7 @@ public class ModRequest {
     public String response;
     public String server = Configuration.ServerName;
     public Date date = new java.sql.Date((new java.util.Date()).getTime());
+    public Boolean escalated = false;
 
     public void setRotation(Double x, Double y, Double z) {
         Vector3d v3d = new Vector3d(x,y,z);

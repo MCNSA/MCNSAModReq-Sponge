@@ -55,6 +55,12 @@ public class ModReqClaimCommand implements CommandExecutor {
             return CommandResult.success();
         }
 
+        //Has it been escalated?
+        if (!request.escalated && !src.hasPermission("modreq.admin")) {
+            Messaging.sendMessage(src, "&4That request has been escalated to admins");
+            return CommandResult.success();
+        }
+
         //Let's  claim it
         request.responder = uuid;
         request.status = 1;

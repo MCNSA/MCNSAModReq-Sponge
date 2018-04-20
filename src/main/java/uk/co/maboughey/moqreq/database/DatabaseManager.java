@@ -45,6 +45,7 @@ public class DatabaseManager {
                     "status int(2) NOT NULL DEFAULT '0', " +
                     "responder varchar(50), " +
                     "response TEXT, " +
+                    "escalated TINYINT(1) DEFAULT 0, " +
                     "PRIMARY KEY (id))");
             /*
             id is the modreq id
