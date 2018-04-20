@@ -9,8 +9,7 @@ import uk.co.maboughey.moqreq.utils.Configuration;
 import uk.co.maboughey.moqreq.utils.Messaging;
 import uk.co.maboughey.moqreq.utils.Username;
 
-import javax.jws.soap.SOAPBinding;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -26,7 +25,7 @@ public class ModRequest {
     public UUID responder;
     public String response;
     public String server = Configuration.ServerName;
-    public Date date;
+    public Date date = new java.sql.Date((new java.util.Date()).getTime());
 
     public void setRotation(Double x, Double y, Double z) {
         Vector3d v3d = new Vector3d(x,y,z);

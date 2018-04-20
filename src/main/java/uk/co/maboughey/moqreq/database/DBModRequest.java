@@ -223,7 +223,7 @@ public class DBModRequest {
             statement.setDouble(8, request.rotation.getX());
             statement.setDouble(9, request.rotation.getY());
             statement.setDouble(10, request.rotation.getZ());
-            statement.setDate(11, new java.sql.Date((new Date()).getTime()));
+            statement.setDate(11, request.date);
 
             statement.executeUpdate();
         }
