@@ -23,8 +23,8 @@ public class ModReqClaimedCommand implements CommandExecutor {
             Messaging.sendMessage(src, "&4Plugin is currently disabled");
             return CommandResult.success();
         }
-        //Check it isnt commandBlock
-        if (src instanceof CommandBlockSource) { return CommandResult.success(); }
+        //Check it isnt commandBlock or console
+        if (src instanceof CommandBlockSource || src instanceof ConsoleSource) { return CommandResult.success(); }
 
         //Get the mod requests
         List<ModRequest> requests = DBModRequest.getRequests(1);
@@ -37,13 +37,7 @@ public class ModReqClaimedCommand implements CommandExecutor {
         }
 
         //Display to sender
-        if (src instanceof ConsoleSource) {
-            //TODO: Console output
-        }
-        else if (src instanceof Player) {
-            //Player Source
-            ((Player) src).sendBookView(BookViewBuilder.viewRequests(requests, 1));
-        }
+        ((Player) src).sendBookView(BookViewBuilder.viewRequests(requests, 1));
 
         return CommandResult.success();
     }

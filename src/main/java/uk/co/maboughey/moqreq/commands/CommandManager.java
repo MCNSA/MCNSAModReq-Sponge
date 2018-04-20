@@ -19,7 +19,7 @@ public class CommandManager {
 
     public void modreqCommand() {
         CommandSpec modReqList = CommandSpec.builder()
-                .description(Text.of("List open and unread Mod requests"))
+                .description(Text.of("Display your mod requests"))
                 .permission("modreq.request")
                 .executor(new ModReqListCommand())
                 .build();
@@ -66,17 +66,41 @@ public class CommandManager {
                 )
                 .executor(new ModReqTeleportCommand())
                 .build();
+        CommandSpec modReqGet = CommandSpec.builder()
+                .description(Text.of("View one Request"))
+                .permission("modreq.mod")
+                .arguments(
+                        GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
+                )
+                .executor(new ModReqGetCommand())
+                .build();
+        CommandSpec modReqEscalate = CommandSpec.builder()
+                .description(Text.of("Notify admins about a request"))
+                .permission("modreq.mod")
+                .arguments(
+                        GenericArguments.onlyOne(GenericArguments.integer(Text.of("id"))),
+                        GenericArguments.allOf(GenericArguments.string(Text.of("message")))
+                )
+                .executor(new ModReqEscalateCommand())
+                .build();
+        CommandSpec modReqMod = CommandSpec.builder()
+                .description(Text.of("Mod commands"))
+                .permission("modreq.mod")
+                .child(modReqOpen, "open", "vo")
+                .child(modReqClaimed, "claimed", "vc")
+                .child(modReqClose, "close", "cl")
+                .child(modReqClaim, "claim", "c")
+                .child(modReqUnclaim, "unclaim", "uc")
+                .child(modReqTeleport, "tp" , "teleport")
+                .child(modReqEscalate, "escalate", "e")
+                .child(modReqGet, "get", "g")
+                .build();
         CommandSpec modreqCommand = CommandSpec.builder()
                 .description(Text.of("Submit a Mod Request"))
                 .permission("modreq.request")
                 .executor(new ModReqCommand())
                 .child(modReqList, "list")
-                .child(modReqOpen, "open")
-                .child(modReqClaimed, "claimed")
-                .child(modReqClose, "close")
-                .child(modReqClaim, "claim")
-                .child(modReqUnclaim, "unclaim")
-                .child(modReqTeleport, "tp" , "teleport")
+                .child(modReqMod, "mod")
                 .arguments(
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )

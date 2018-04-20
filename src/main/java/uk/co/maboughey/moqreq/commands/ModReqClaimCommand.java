@@ -26,7 +26,7 @@ public class ModReqClaimCommand implements CommandExecutor {
         }
         //Get sender's info
         UUID uuid = null;
-        if (src instanceof CommandBlockSource) {
+        if (src instanceof CommandBlockSource || src instanceof ConsoleSource) {
             return CommandResult.success();
         }
         else if (src instanceof Player) {

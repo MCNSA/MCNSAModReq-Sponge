@@ -9,10 +9,10 @@ import org.spongepowered.api.entity.living.player.Player;
 import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
+import uk.co.maboughey.moqreq.utils.Discord;
 import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 public class ModReqCommand implements CommandExecutor {
@@ -58,6 +58,9 @@ public class ModReqCommand implements CommandExecutor {
 
         //Tell the user
         Messaging.newModReqUser((Player)src);
+
+        //Post to Discord
+        Discord.sendMod(request.message, src);
 
         //Notify mods that are online about the new mod request
         Messaging.notifyModsNew();

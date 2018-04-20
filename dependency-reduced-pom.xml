@@ -25,6 +25,7 @@
               <artifactSet>
                 <includes>
                   <include>mysql:mysql-connector-java</include>
+                  <include>com.googlecode.json-simple:json-simple</include>
                 </includes>
               </artifactSet>
             </configuration>

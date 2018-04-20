@@ -21,6 +21,8 @@ public class Configuration {
     public static String DBUser;
     public static String DBPassword;
     public static String ServerName;
+    public static String DiscordModHook;
+    public static String DiscordAdminHook;
 
     public Configuration(Path confDir) {
         this.configDir = confDir;
@@ -61,6 +63,8 @@ public class Configuration {
                 configNode.getNode("DatabaseUser").setValue("mcnsanotes");
                 configNode.getNode("DatabasePassword").setValue("mcnsanotes");
                 configNode.getNode("ServerName").setValue("Server");
+                configNode.getNode("DiscordModHook").setValue("Empty");
+                configNode.getNode("DiscordAdminHook").setValue("Empty");
 
                 //Save default config
                 configLoader.save(configNode);
@@ -90,6 +94,8 @@ public class Configuration {
             DBUser = configNode.getNode("DatabaseUser").getString();
             DBPassword = configNode.getNode("DatabasePassword").getString();
             ServerName = configNode.getNode("ServerName").getString();
+            DiscordModHook = "https://discordapp.com/api/webhooks/"+configNode.getNode("DiscordModHook").getString();
+            DiscordAdminHook = "https://discordapp.com/api/webhooks/"+configNode.getNode("DiscordAdminHook").getString();
         }
     }
 

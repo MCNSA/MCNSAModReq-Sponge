@@ -1,5 +1,4 @@
-Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\modReqShowMessage.java
-Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\modReqUnclaimCommand.java
+Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\ModReqUnclaimCommand.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\ModReqClaimCommand.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\database\DatabaseManager.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\ModReqOpenCommand.java
@@ -10,11 +9,15 @@ Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\utils\M
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\ModReqGetCommand.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\utils\Log.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\utils\Username.java
+Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\fr\d0p1\hookscord\utils\Field.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\CommandManager.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\ModReqListCommand.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\type\ModRequest.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\utils\Configuration.java
+Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\fr\d0p1\hookscord\utils\Attachment.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\database\DBModRequest.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\ModReq.java
+Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\fr\d0p1\hookscord\utils\Message.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\ModReqCloseCommand.java
+Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\fr\d0p1\hookscord\Hookscord.java
 Y:\MCNSANotes - Sponge\maven\modreq\src\main\java\uk\co\maboughey\moqreq\commands\ModReqClaimedCommand.java

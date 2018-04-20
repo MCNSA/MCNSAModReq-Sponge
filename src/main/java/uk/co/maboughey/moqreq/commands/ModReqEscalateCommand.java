@@ -4,39 +4,29 @@ import org.spongepowered.api.command.CommandException;
 import org.spongepowered.api.command.CommandResult;
 import org.spongepowered.api.command.CommandSource;
 import org.spongepowered.api.command.args.CommandContext;
-import org.spongepowered.api.command.source.CommandBlockSource;
 import org.spongepowered.api.command.spec.CommandExecutor;
-import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.text.Text;
 import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
+import uk.co.maboughey.moqreq.utils.Discord;
 import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.Collection;
-import java.util.UUID;
 
-public class ModReqCloseCommand implements CommandExecutor {
+public class ModReqEscalateCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (!ModReq.isEnabled) {
             Messaging.sendMessage(src, "&4Plugin is currently disabled");
             return CommandResult.success();
         }
-        //Get sender's info
-        UUID uuid = null;
-        if (src instanceof CommandBlockSource) {
-            return CommandResult.success();
-        }
-        else if (src instanceof Player) {
-            uuid = ((Player)src).getUniqueId();
-        }
 
+        //Get the details we need
         int id = args.<Integer>getOne(Text.of("id")).get();
-        Collection<String> messageArgs = args.getAll(Text.of("message"));
-        String message = String.join(" ", messageArgs);
+        Collection<String> messageCollection = args.getAll("message");
+        String message = String.join(" ", messageCollection);
 
-        //Make sure the id is valid
         if (!(id >0)) {
             Messaging.sendMessage(src, "&4Invalid request id");
             return CommandResult.success();
@@ -51,27 +41,18 @@ public class ModReqCloseCommand implements CommandExecutor {
             return CommandResult.success();
         }
 
-        //Don't override already closed commands
+        //Check the status
         if (request.status > 1) {
-            Messaging.sendMessage(src, "&4This request is already closed.");
+            //Closed or unread
+            Messaging.sendMessage(src, "&4That request has already been closed");
             return CommandResult.success();
         }
 
-        //Lets fill out the details
-        request.responder = uuid;
-        request.response = message;
-        request.status = 2;
+        //Send a message to discord
+        Discord.sendAdmin(message, request.id, request.message, src);
 
-        //Save the request
-        DBModRequest.updateRequestDone(request);
-
-        //Tell the user
-        Messaging.sendMessage(src, "You have closed request: "+id);
-
-        //Tell the player who submitted the modrequest
-        Messaging.notifyPlayerComplete(request.user);
-
-        //end of command
+        //Send a message to the sender
+        Messaging.sendMessage(src, "&6The admins have been notified about this request");
         return CommandResult.success();
     }
 }

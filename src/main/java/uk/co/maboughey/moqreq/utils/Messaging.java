@@ -8,6 +8,7 @@ import org.spongepowered.api.text.format.TextColors;
 import org.spongepowered.api.text.serializer.TextSerializers;
 import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.database.DBModRequest;
+import uk.co.maboughey.moqreq.type.ModRequest;
 
 import java.util.List;
 import java.util.UUID;
@@ -22,7 +23,7 @@ public class Messaging {
         if (openCount > 0) {
             Text clickableOpen = Text.builder("[Click to view]")
                     .color(TextColors.BLUE)
-                    .onClick(TextActions.runCommand("/modreq open"))
+                    .onClick(TextActions.runCommand("/modreq mod open"))
                     .build();
             //more than one, lets send message
             player.sendMessage(colour("&6There are currently &F"+openCount+" &6open mod requests. ").concat(clickableOpen));
@@ -31,7 +32,7 @@ public class Messaging {
         if (claimedCount > 0) {
             Text clickableClaimed = Text.builder("[Click to view]")
                     .color(TextColors.BLUE)
-                    .onClick(TextActions.runCommand("/modreq claimed"))
+                    .onClick(TextActions.runCommand("/modreq mod claimed"))
                     .build();
             //Mod has more than one claimed modreq
             player.sendMessage(colour("&6You have &F"+claimedCount+"&6 Mod Requests assigned to you. ").concat(clickableClaimed));
@@ -75,7 +76,7 @@ public class Messaging {
         for (Player player: mods) {
             Text linkText = Text.builder("Click to view")
                     .color(TextColors.BLUE)
-                    .onClick(TextActions.runCommand("/modreq open"))
+                    .onClick(TextActions.runCommand("/modreq  mod open"))
                     .build();
 
             player.sendMessage(colour("&6New mod request submitted. ").concat(linkText));
@@ -88,7 +89,7 @@ public class Messaging {
                     .color(TextColors.BLUE)
                     .onClick(TextActions.runCommand("/modreq list"))
                     .build();
-            player.sendMessage(colour("&A mod request you submitted has been completed ").concat(linkText));
+            player.sendMessage(colour("&AA mod request you submitted has been completed ").concat(linkText));
         }
     }
     public static void errorMessage(Player player, String message) {
@@ -103,6 +104,15 @@ public class Messaging {
     }
     public static Text colour(String string) {
         return TextSerializers.FORMATTING_CODE.deserialize(string);
+    }
+    public static void consoleRequest(ModRequest request, CommandSource src) {
+        sendMessage(src, "&6ID: &F"+request.id+" &6Status: &F"+request.status);
+        sendMessage(src, "&6Date: &F"+request.date+" &6User: &F"+request.getUser());
+        sendMessage(src, "&F"+request.message);
+        if (request.status > 1)
+            sendMessage(src,"&6Responder: &F"+request.getResponder());
+        if (request.status > 2)
+            sendMessage(src, "&6Response: &F"+request.response);
     }
 
 

@@ -38,7 +38,9 @@ public class ModReqOpenCommand implements CommandExecutor {
 
         //Display to sender
         if (src instanceof ConsoleSource) {
-            //TODO: Console output
+            for (ModRequest request: requests) {
+                Messaging.consoleRequest(request, src);
+            }
         }
         else if (src instanceof Player) {
             //Player Source
