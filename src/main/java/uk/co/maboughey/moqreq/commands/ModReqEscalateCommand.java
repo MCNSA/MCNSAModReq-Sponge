@@ -61,8 +61,7 @@ public class ModReqEscalateCommand implements CommandExecutor {
         DBModRequest.updateRequestEscalation(request);
 
         //Send a message to discord
-        //TODO: Commented out for testing purposes
-        //Discord.sendAdmin(message, request.id, request.message, src);
+        Discord.sendAdmin(message, request.id, request.message, src);
 
         //Send a message to the sender
         Messaging.sendMessage(src, "&6The admins have been notified about this request");

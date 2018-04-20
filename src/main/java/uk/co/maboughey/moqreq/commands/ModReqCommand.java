@@ -60,8 +60,7 @@ public class ModReqCommand implements CommandExecutor {
         Messaging.newModReqUser((Player)src);
 
         //Post to Discord
-        //TODO: Commented out for testing purposes
-        //Discord.sendMod(request.message, src);
+        Discord.sendMod(request.message, src);
 
 
         //Notify mods that are online about the new mod request
