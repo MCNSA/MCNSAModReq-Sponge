@@ -12,7 +12,7 @@ public class Discord {
         try {
             Hookscord hk = new Hookscord(Configuration.DiscordModHook);
             Message msg = new Message("New Mod Request");
-            msg.setText(src.getName()+" has submitted a new mod request with the text: "+message);
+            msg.setText("**"+src.getName()+"** has submitted a new mod request with the text: *"+message+"*");
             hk.sendMessage(msg);
 
         } catch (MalformedURLException e) {
@@ -25,7 +25,7 @@ public class Discord {
         try {
             Hookscord hk = new Hookscord(Configuration.DiscordAdminHook);
             Message msg = new Message("Escalated Mod Request");
-            msg.setText(src.getName()+" wants an admin to look at mod request id: "+id+"\nMessage: "+message+"\nRequest message: "+reqMessage);
+            msg.setText("**"+src.getName()+"** wants an admin to look at mod request id: "+id+"\nMessage: *"+message+"*\nRequest message: *"+reqMessage+"*");
             hk.sendMessage(msg);
 
         } catch (MalformedURLException e) {
