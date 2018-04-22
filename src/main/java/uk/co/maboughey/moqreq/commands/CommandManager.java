@@ -113,6 +113,8 @@ public class CommandManager {
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )
                 .build();
-        Sponge.getCommandManager().register(plugin, modreqCommand, "modreq");
+        Sponge.getCommandManager().register(plugin, modreqCommand, "modreq", "mr");
+        Sponge.getCommandManager().register(plugin, modReqMod, "mrm");
+        Sponge.getCommandManager().register(plugin, ModReqAdmin, "mra");
     }
 }
