@@ -1,5 +1,6 @@
 package uk.co.maboughey.moqreq.database;
 import org.spongepowered.api.Sponge;
+import org.spongepowered.api.command.source.ConsoleSource;
 import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.type.ModRequest;
 
@@ -20,7 +21,10 @@ public class DBModRequest {
         try {
             Connection connection = DatabaseManager.getConnection();
             String sql = "";
-            if (Sponge.getServer().getPlayer(uuid).get().hasPermission("modreq.admin"))
+            if (uuid == null) {
+                sql= "SELECT * FROM modReq WHERE status=?";
+            }
+            else if (Sponge.getServer().getPlayer(uuid).get().hasPermission("modreq.admin"))
                 sql= "SELECT * FROM modReq WHERE status=?";
             else
                 sql= "SELECT * FROM modReq WHERE status=? AND escalated=0";
