@@ -106,7 +106,15 @@ public class Messaging {
         return TextSerializers.FORMATTING_CODE.deserialize(string);
     }
     public static void consoleRequest(ModRequest request, CommandSource src) {
-        sendMessage(src, "&6ID: &F"+request.id+" &6Status: &F"+request.status);
+        String status = "";
+        switch (request.status) {
+            case(0): status = "Open"; break;
+            case(1): status = "Claimed"; break;
+            case(2): status = "Unread"; break;
+            case(3): status = "Closed"; break;
+        }
+
+        sendMessage(src, "&6ID: &F"+request.id+" &6Status: &F"+status);
         sendMessage(src, "&6Date: &F"+request.date+" &6User: &F"+request.getUser());
         sendMessage(src, "&F"+request.message);
         if (request.status > 1)
