@@ -14,11 +14,13 @@ import uk.co.maboughey.moqreq.type.ModRequest;
 import uk.co.maboughey.moqreq.utils.BookViewBuilder;
 import uk.co.maboughey.moqreq.utils.Messaging;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ModReqOpenCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
+
         if (!ModReq.isEnabled) {
             Messaging.sendMessage(src, "&4Plugin is currently disabled");
             return CommandResult.success();
@@ -27,7 +29,12 @@ public class ModReqOpenCommand implements CommandExecutor {
         if (src instanceof CommandBlockSource) { return CommandResult.success(); }
 
         //Get the mod requests
-        List<ModRequest> requests = DBModRequest.getRequests(0, ((Player)src).getUniqueId());
+        List<ModRequest> requests = new ArrayList<ModRequest>();
+
+        if (src instanceof CommandSource)
+            requests = DBModRequest.getRequests(0, null);
+        else
+            requests = DBModRequest.getRequests(0, ((Player)src).getUniqueId());
 
         //Check if there is any
         if (requests.size() < 1) {
