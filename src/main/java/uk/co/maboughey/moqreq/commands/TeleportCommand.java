@@ -15,7 +15,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.UUID;
 
-public class ModReqTeleportCommand implements CommandExecutor {
+public class TeleportCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (!ModReq.isEnabled) {

@@ -5,7 +5,6 @@ import org.spongepowered.api.command.args.GenericArguments;
 import org.spongepowered.api.command.spec.CommandSpec;
 import org.spongepowered.api.plugin.PluginContainer;
 import org.spongepowered.api.text.Text;
-import uk.co.maboughey.moqreq.ModReq;
 
 public class CommandManager {
 
@@ -65,7 +64,7 @@ public class CommandManager {
                 .arguments(
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
                 )
-                .executor(new ModReqTeleportCommand())
+                .executor(new TeleportCommand())
                 .build();
         CommandSpec modReqGet = CommandSpec.builder()
                 .description(Text.of("View one Request"))
