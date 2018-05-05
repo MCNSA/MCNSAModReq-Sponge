@@ -15,7 +15,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.UUID;
 
-public class ModReqUnclaimCommand implements CommandExecutor {
+public class UnclaimCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (!ModReq.isEnabled) {

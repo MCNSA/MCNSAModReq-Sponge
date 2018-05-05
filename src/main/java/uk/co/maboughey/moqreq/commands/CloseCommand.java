@@ -16,7 +16,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 import java.util.Collection;
 import java.util.UUID;
 
-public class ModReqCloseCommand implements CommandExecutor {
+public class CloseCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (!ModReq.isEnabled) {

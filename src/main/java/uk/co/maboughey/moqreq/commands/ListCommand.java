@@ -17,7 +17,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.List;
 
-public class ModReqListCommand implements CommandExecutor {
+public class ListCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (!ModReq.isEnabled) {

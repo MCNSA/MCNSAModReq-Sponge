@@ -16,7 +16,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.List;
 
-public class ModReqClaimedCommand implements CommandExecutor {
+public class ClaimedCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (!ModReq.isEnabled) {

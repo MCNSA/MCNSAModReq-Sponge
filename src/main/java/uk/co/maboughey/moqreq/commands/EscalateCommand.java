@@ -14,7 +14,7 @@ import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.Collection;
 
-public class ModReqEscalateCommand implements CommandExecutor {
+public class EscalateCommand implements CommandExecutor {
     @Override
     public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
         if (!ModReq.isEnabled) {

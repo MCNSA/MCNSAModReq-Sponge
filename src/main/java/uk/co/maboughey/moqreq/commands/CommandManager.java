@@ -21,17 +21,17 @@ public class CommandManager {
         CommandSpec modReqList = CommandSpec.builder()
                 .description(Text.of("Display your mod requests"))
                 .permission("modreq.user")
-                .executor(new ModReqListCommand())
+                .executor(new ListCommand())
                 .build();
         CommandSpec modReqOpen = CommandSpec.builder()
                 .description(Text.of("List open mod requests"))
                 .permission("modreq.mod")
-                .executor(new ModReqOpenCommand())
+                .executor(new OpenCommand())
                 .build();
         CommandSpec modReqClaimed = CommandSpec.builder()
                 .description(Text.of("List claimed mod requests"))
                 .permission("modreq.mod")
-                .executor(new ModReqClaimedCommand())
+                .executor(new ClaimedCommand())
                 .build();
         CommandSpec modReqUnclaim = CommandSpec.builder()
                 .description(Text.of("Unassign mod from request"))
@@ -39,12 +39,12 @@ public class CommandManager {
                 .arguments(
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
                 )
-                .executor(new ModReqUnclaimCommand())
+                .executor(new UnclaimCommand())
                 .build();
         CommandSpec modReqClose = CommandSpec.builder()
                 .description(Text.of("Close a mod request"))
                 .permission("modreq.mod")
-                .executor(new ModReqCloseCommand())
+                .executor(new CloseCommand())
                 .arguments(
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id"))),
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
@@ -53,7 +53,7 @@ public class CommandManager {
         CommandSpec modReqClaim = CommandSpec.builder()
                 .description(Text.of("Claim a mod request"))
                 .permission("modreq.mod")
-                .executor(new ModReqClaimCommand())
+                .executor(new ClaimCommand())
                 .arguments(
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
                 )
@@ -72,7 +72,7 @@ public class CommandManager {
                 .arguments(
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id")))
                 )
-                .executor(new ModReqGetCommand())
+                .executor(new GetCommand())
                 .build();
         CommandSpec modReqEscalate = CommandSpec.builder()
                 .description(Text.of("Notify admins about a request"))
@@ -81,17 +81,17 @@ public class CommandManager {
                         GenericArguments.onlyOne(GenericArguments.integer(Text.of("id"))),
                         GenericArguments.allOf(GenericArguments.string(Text.of("message")))
                 )
-                .executor(new ModReqEscalateCommand())
+                .executor(new EscalateCommand())
                 .build();
         CommandSpec ModReqAdmin = CommandSpec.builder()
                 .description(Text.of("Display escalated requests"))
                 .permission("modreq.admin")
-                .executor(new ModReqAdminCommand())
+                .executor(new AdminCommand())
                 .build();
         CommandSpec modReqMod = CommandSpec.builder()
                 .description(Text.of("Mod commands"))
                 .permission("modreq.mod")
-                .executor(new ModReqOpenCommand())
+                .executor(new OpenCommand())
                 .child(modReqOpen, "open", "vo")
                 .child(modReqClaimed, "claimed", "vc")
                 .child(modReqClose, "close", "cl")
