@@ -11,6 +11,7 @@ import org.spongepowered.api.text.Text;
 import uk.co.maboughey.moqreq.ModReq;
 import uk.co.maboughey.moqreq.database.DBModRequest;
 import uk.co.maboughey.moqreq.type.ModRequest;
+import uk.co.maboughey.moqreq.utils.Discord;
 import uk.co.maboughey.moqreq.utils.Messaging;
 
 import java.util.Collection;
@@ -73,6 +74,9 @@ public class CloseCommand implements CommandExecutor {
 
         //Tell the user
         Messaging.sendMessage(src, "You have closed request: "+id);
+
+        //notify Discord
+        Discord.closedRequest(request.getUser(), request.message, src);
 
         //Tell the player who submitted the modrequest
         Messaging.notifyPlayerComplete(request.user);
