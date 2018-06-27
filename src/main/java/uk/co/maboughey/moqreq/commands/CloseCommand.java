@@ -76,7 +76,7 @@ public class CloseCommand implements CommandExecutor {
         Messaging.sendMessage(src, "You have closed request: "+id);
 
         //notify Discord
-        Discord.closedRequest(request.getUser(), request.message, src);
+        Discord.closedRequest(request.getUser(), request.message, src, request.id, request.response);
 
         //Tell the player who submitted the modrequest
         Messaging.notifyPlayerComplete(request.user);

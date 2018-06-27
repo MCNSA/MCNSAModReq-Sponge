@@ -37,7 +37,7 @@ public class Discord {
             e.printStackTrace();
         }
     }
-    public static void closedRequest(String user, String message, CommandSource src) {
+    public static void closedRequest(String user, String message, CommandSource src, int id, String response) {
         String closer;
         if (src instanceof ConsoleSource)
             closer = "Console";
@@ -47,8 +47,11 @@ public class Discord {
         try {
             Hookscord hk = new Hookscord(Configuration.DiscordModHook);
             Message msg = new Message("Closed Mod Request");
-            msg.setText("**"+closer+"** has closed **"+user+"'s** mod request on **"+Configuration.ServerName+"**\n" +
-                    "Request text: *"+message+"*");
+            msg.setText("**"+closer+"** has closed mod request on **"+Configuration.ServerName+"**\n" +
+                    "Id: *"+id+"*\n"+
+                    "Player: "+user+
+                    "\nRequest text: *"+message+"*\n" +
+                    "Comment: *"+response+"*");
             hk.sendMessage(msg);
 
         } catch (MalformedURLException e) {
